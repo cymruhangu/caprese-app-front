@@ -15,3 +15,9 @@ export const matches = field => (value, allValues) =>
     field in allValues && value.trim() === allValues[field].trim()
         ? undefined
         : 'Does not match';
+
+//Project create/edit validators
+
+    // if(!budget || budget.match(/^\d{1,}(\.\d{0,2})?$/))
+  
+ 

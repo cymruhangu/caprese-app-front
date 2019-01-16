@@ -1,0 +1,12 @@
+.is-active {
+  font-weight: bold;
+  color: red;
+}
+
+* {
+  padding-right: 25px;
+}
+
+NavLink {
+  text-decoration: none;
+}

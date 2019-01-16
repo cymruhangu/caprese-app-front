@@ -6,6 +6,9 @@ import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
+import ProjectList from './project-list';
+import ProjectView from './project-view';
+import CreateProject from './create-project';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
@@ -45,6 +48,9 @@ export class App extends React.Component {
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
+                <Route exact path="/projects" component={ProjectList} />
+                <Route exact path="/projects/:id" component={ProjectView} />
+                <Route exact path="/projectcreate" component={CreateProject} />
             </div>
         );
     }

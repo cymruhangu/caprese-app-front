@@ -9,7 +9,7 @@ const CreateProject = (props) => (
         <ProjectForm  
             onSubmit={(project) => {
                 props.dispatch(addProject(project));
-                props.history.push('/');
+                props.history.push('/my-projects');
             }}
         />
     </div>

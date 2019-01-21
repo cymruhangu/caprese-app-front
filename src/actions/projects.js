@@ -22,7 +22,6 @@ export const fetchProjects = () => dispatch => {
   });
 };
 
-//GET Single Project - from store
 export const ADD_PROJECT_SUCCESS = 'ADD_PROJECT_SUCCESS';
 export const addProjectSuccess = project => ({
   type: ADD_PROJECT_SUCCESS,
@@ -56,28 +55,62 @@ export const addProject = project => dispatch => {
     });
 };
 
-//EDIT PROJECT
-// const EDIT_PROJECT = 'EDIT_PROJECT';
 
+//UPDATE PROJECT SUCCESS
+export const UPDATE_PROJECT_SUCCESS = 'UPDATE_PROJECT_SUCCESS';
+export const updateProjectSuccess = (id, updates) => ({
+  type: UPDATE_PROJECT_SUCCESS,
+  id,
+  updates,
+});
 
+//UPDATE PROJECT
+export const UPDATE_PROJECT = 'UPDATE_PROJECT'
+export const updateProject = (id, updates) => dispatch => {
+  console.log(id);
+  console.log(updates);
+  return fetch(`${API_BASE_URL}/projects/${id}`, {
+    method: 'PUT',
+    headers: {
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify(updates)
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(
+      dispatch(updateProjectSuccess(id, updates))
+    )
+    .catch(err => {
+      const {reason, message, location} = err;
+      if (reason === 'ValidationError') {
+        // Convert ValidationErrors into SubmissionErrors for Redux Form
+        return Promise.reject(
+          new SubmissionError({
+            [location]: message
+          })
+        );
+      }
+    });
+};
 
 //DELETE Project
 export const DELETE_PROJECT_SUCCESS = 'DELETE_PROJECT_SUCCESS';
-export const deleteProjectSuccess = ({ id }) => ({
+export const deleteProjectSuccess = (id) => ({
   type: DELETE_PROJECT_SUCCESS,
   id
 });
 
 export const DELETE_PROJECT = 'DELETE_PROJECT'
-export const deleteProject = ({id }) => dispatch => {
+export const deleteProject = (id) => dispatch => {
   return fetch(`${API_BASE_URL}/projects/${id}`, {
     method: 'DELETE',
     headers: {
         'content-type': 'application/json'
     }
   })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
+    // .then(res => normalizeResponseErrors(res))
+    // .then(res => res.json())
     .then(
       dispatch(deleteProjectSuccess(id))
     )
@@ -93,41 +126,3 @@ export const deleteProject = ({id }) => dispatch => {
       }
     });
 };
-// //Old Actions
-// import uuid from 'uuid';
-// //ADD PROJECT
-// export const addProject = (
-//     { 
-//         name = '',
-//         description = '', 
-//         owner = '',
-//         budget = 0, 
-//         remaining = 0, 
-//         tasks = []
-//     }= {}
-// ) =>({
-//     type: 'ADD_PROJECT',
-//     project: {
-//         id: uuid(),
-//         name,
-//         owner,
-//         description,
-//         budget,
-//         remaining,
-//         tasks
-//     }
-// });
-
-// //REMOVE PROJECT
-// export const removeProject = ({ id } = {}) => ({
-//     type: 'REMOVE_PROJECT',
-//     id
-// });
-
-// //EDIT PROJECT
-// export const editProject = (id, updates) => ({
-//     type: 'EDIT_PROJECT',
-//     id,
-//     updates
-// });
-

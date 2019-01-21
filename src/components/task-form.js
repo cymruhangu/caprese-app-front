@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-class ProjectForm extends React.Component {
+class TaskForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             name: '',
-            owner: this.props.user,
+            parent: '',
             description: '',
             budget: 0,
             remaining: 0,
@@ -29,12 +29,12 @@ class ProjectForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         if(!this.state.name || !this.state.description || !this.state.budget){
-            this.setState(() => ({ error: 'Please add project name, description and budget(hours).'}))
+            this.setState(() => ({ error: 'Please add task name, description and budget(hours).'}))
         }else{
             this.setState(() => ({ error: ''}));
             this.props.onSubmit({
                 name: this.state.name,
-                owner: this.state.owner,
+                parent: this.state.owner,
                 description: this.state.description,
                 budget: this.state.budget * 3600000,
                 remaining: this.state.budget * 3600000,
@@ -45,15 +45,15 @@ class ProjectForm extends React.Component {
     };
 
     render(){
-      console.log(this.props.projects);
+      console.log(this.props.tasks);
         return (
             <div>
-              <h3>Creating Project for </h3>
+              <h3>Creating Task for </h3>
                 {this.state.error && <p>{this.state.error}</p>} 
                 <form onSubmit={this.onSubmit}>
                     <input 
                         type="text" 
-                        placeholder="project name" 
+                        placeholder="task name" 
                         autoFocus
                         value={this.state.name} 
                         onChange={this.onNameChange}
@@ -68,11 +68,11 @@ class ProjectForm extends React.Component {
                     />
                    
                     <textarea
-                        placeholder="project description" 
+                        placeholder="task description" 
                         value={this.state.description}
                         onChange={this.onDescriptionChange} >
                     </textarea>
-                    <button>Create Project</button>           
+                    <button>Create Task</button>           
                 </form>
             </div>
         )
@@ -82,10 +82,10 @@ class ProjectForm extends React.Component {
 const mapStateToProps = state => {
   console.log(state.auth.currentUser);
    return {
-    projects: state.projects,
+    tasks: state.tasks,
     user: state.auth.currentUser.id
 };
 
 }
 
-export default connect(mapStateToProps)(ProjectForm);
+export default connect(mapStateToProps)(TaskForm);

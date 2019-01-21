@@ -6,6 +6,7 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import projectsReducer from './reducers/projects';
+import tasksReducer from './reducers/tasks';
 import timerReducer from './reducers/timer';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
@@ -22,6 +23,7 @@ const store = createStore(
         auth: authReducer,
         protectedData: protectedDataReducer,
         projects: projectsReducer,
+        tasks: tasksReducer,
         timer: timerReducer
     }), initialState,
         composeWithDevTools(

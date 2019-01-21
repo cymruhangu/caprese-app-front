@@ -1,7 +1,10 @@
-import { UPDATE_TIME, UPDATE_PROJECTID } from '../actions/timer';
+import { UPDATE_TIME, UPDATE_PROJECTID, UPDATE_PROJECT_NAME} from '../actions/timer';
 
 const initialState = {
-  currentProjectId: '',  
+  projectId: '', 
+  projectName: '', 
+  projectBudget: '',
+  projectRemaining: '',
   budget: 30000,
   remaining: 30000,
   work: 30000,
@@ -17,7 +20,12 @@ export default (state = initialState, action) => {
       });
     case UPDATE_PROJECTID:
       return Object.assign({}, state, {
-        currentProjectId: action.id
+        ...state,
+        ...action.updates
+      });
+    case UPDATE_PROJECT_NAME:
+      return Object.assign({}, state, {
+        currentProjectName: action.name
       });
     default: 
       return state;

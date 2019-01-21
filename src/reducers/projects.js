@@ -1,30 +1,26 @@
 import * as ACTIONS from '../actions/projects';
 
-const projectsInitialState = {
-  projects: []
-};
+const projectsInitialState = [];
 
 export default (state = projectsInitialState, action) => {
   switch (action.type) {
     case ACTIONS.FETCH_PROJECTS_SUCCESS:
-      console.log(action.projects);
+    //Need to check if store is empty.
+      console.log('FETCH_SUCCESS');
       console.log(state);
-      // return {
-      //   projects: [action.projects, ...state.projects]
-      // };
-      const z =  Object.assign({}, state, { projects: [...state.projects, ...action.projects] });
-      console.log(z);
-      return z;
-      // return Object.assign({},state, { projects: action.projects });
+      return [...state, ...action.projects];
     case ACTIONS.ADD_PROJECT_SUCCESS:
-      console.log(action.project);
-      console.log(state.projects);
-      return Object.assign({},state, {
-        projects: [...state.projects, action.project] });
-    case ACTIONS.DELETE_PROJECT:
-      return state.filter(({ id }) => id !== action.id);
-    case 'EDIT_PROJECT':
-      return state.map((project) => {
+      console.log('ADD_SUCCESS');
+      console.log(state);
+      return [...state, action.project];
+    case ACTIONS.DELETE_PROJECT_SUCCESS:
+      console.log('DELETE_SUCCESS');
+      console.log(state);
+      return state.filter((project) => project._id !== action.id);
+    case ACTIONS.UPDATE_PROJECT_SUCCESS:
+      console.log('UPDATE_SUCCESS');
+      console.log(action.updates)
+      return state.filter((project) => {
         if(project.id === action.id){
           return {
             ...project, 

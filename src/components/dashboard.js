@@ -12,7 +12,8 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-        console.log(this.props.test);
+        // console.log(this.props.projects);
+        // console.log(this.props.test);
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
@@ -34,6 +35,7 @@ const mapStateToProps = state => {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data,
+        projects: state.projects,
         test: state
     };
 };

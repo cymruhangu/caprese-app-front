@@ -1,0 +1,19 @@
+.home {
+  background-color: lavender;
+  text-align: center;
+  width: 30%;
+  position: absolute;
+  left: 35%;
+  top: 30%;
+  border-radius: 8px;
+}
+
+html {
+  text-align: center;
+  background-image: url(https://i.ytimg.com/vi/i-TAfCQ62q0/maxresdefault.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+    /* background-color: yellow; */
+}

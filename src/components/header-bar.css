@@ -1,0 +1,32 @@
+.header-bar {
+  background-color: lightgray;
+  height: 80px;
+  padding-right: 0;
+  padding-top: 15px;
+}
+
+.header-bar .is-active {
+  font-weight: bold;
+  color: red;
+}
+
+.header-bar a {
+  text-decoration: none;
+  padding-right: 15px;;
+}
+
+.header-bar h1 {
+  display: inline;
+  font-size: 2em;
+  padding-left: 10px;
+  padding-right: 40%;
+}
+
+.header-bar .far {
+  font-size: 2em;
+  padding: 0 10px;
+}
+
+.active-nav {
+  display: inline;
+}

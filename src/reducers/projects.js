@@ -20,8 +20,8 @@ export default (state = projectsInitialState, action) => {
     case ACTIONS.UPDATE_PROJECT_SUCCESS:
       console.log('UPDATE_SUCCESS');
       console.log(action.updates)
-      return state.filter((project) => {
-        if(project.id === action.id){
+      const newProject = state.map((project) => {
+        if(project._id === action.id){
           return {
             ...project, 
             ...action.updates
@@ -29,7 +29,10 @@ export default (state = projectsInitialState, action) => {
         } else {
           return project;
         }
+        
     });
+    console.log(newProject);
+    return newProject;
     default:
       return state;
   }

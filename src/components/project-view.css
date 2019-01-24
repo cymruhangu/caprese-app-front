@@ -1,0 +1,9 @@
+
+.project-view {
+  border: 2px solid yellow;
+  width: 40%;
+}
+
+.hidden-task {
+  display: none;
+}

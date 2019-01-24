@@ -42,6 +42,7 @@ export const addTask = task => dispatch => {
     .then(
       dispatch(addTaskSuccess(task))
     )
+    .then(console.log(task))
     .catch(err => {
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {

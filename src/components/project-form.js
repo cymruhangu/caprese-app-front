@@ -5,7 +5,6 @@ class ProjectForm extends React.Component {
         super(props);
         this.state = {
             name: '',
-            owner: this.props.user,
             description: '',
             budget: 0,
             remaining: 0,
@@ -34,18 +33,19 @@ class ProjectForm extends React.Component {
             this.setState(() => ({ error: ''}));
             this.props.onSubmit({
                 name: this.state.name,
-                owner: this.state.owner,
+                owner: this.props.user,
                 description: this.state.description,
                 budget: this.state.budget * 3600000,
                 remaining: this.state.budget * 3600000,
-                tasks:[]
+                tasks:[],
+                isActive: true
             });
-            console.log(this.state.owner);
+            console.log(this.props.user);
         }
     };
 
     render(){
-      console.log(this.props.projects);
+      // console.log(this.props.projects);
         return (
             <div>
               <h3>Creating Project for </h3>
@@ -80,7 +80,7 @@ class ProjectForm extends React.Component {
 } 
 
 const mapStateToProps = state => {
-  console.log(state.auth.currentUser);
+  // console.log(state.auth.currentUser);
    return {
     projects: state.projects,
     user: state.auth.currentUser.id

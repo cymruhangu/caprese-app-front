@@ -5,7 +5,7 @@ class TaskForm extends React.Component {
         super(props);
         this.state = {
             name: '',
-            parent: '',
+            parent: props.projectId,
             description: '',
             budget: 0,
             remaining: 0,
@@ -34,13 +34,12 @@ class TaskForm extends React.Component {
             this.setState(() => ({ error: ''}));
             this.props.onSubmit({
                 name: this.state.name,
-                parent: this.state.owner,
+                parent: this.state.parent,
                 description: this.state.description,
                 budget: this.state.budget * 3600000,
                 remaining: this.state.budget * 3600000,
                 tasks:[]
             });
-            console.log(this.state.owner);
         }
     };
 
@@ -48,7 +47,7 @@ class TaskForm extends React.Component {
       console.log(this.props.tasks);
         return (
             <div>
-              <h3>Creating Task for </h3>
+              <h3>Creating Task for {this.state.parent}</h3>
                 {this.state.error && <p>{this.state.error}</p>} 
                 <form onSubmit={this.onSubmit}>
                     <input 
@@ -80,7 +79,7 @@ class TaskForm extends React.Component {
 } 
 
 const mapStateToProps = state => {
-  console.log(state.auth.currentUser);
+  // console.log(state.auth.currentUser);
    return {
     tasks: state.tasks,
     user: state.auth.currentUser.id

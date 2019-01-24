@@ -6,13 +6,13 @@ import { updateProject } from '../actions/projects';
 import BreakTimerModal from './break-timer-modal';
 import './timer.css';
 
-export class Timer extends React.Component {
+export class Timer2 extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       current: this.props.work,
       isOn: false,
-      start: this.props.project.remaining,
+      start: '',
       project: this.props.project,
       projectRemaining: props.project.remaining,
       projectBudget: props.project.budget,
@@ -149,4 +149,4 @@ const mapStateToProps = (state, props) => {
   }
 };
 
-export default connect(mapStateToProps)(Timer);
+export default connect(mapStateToProps)(Timer2);

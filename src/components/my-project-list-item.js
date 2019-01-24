@@ -3,7 +3,7 @@ import React from 'react';
 import ms from 'pretty-ms';
 import './project-list-item.css';
 
-const MyProjectListItem = ({_id, name, budget, owner, remaining, isActive, onTimerClick, onEditClick, onDeleteClick}) => (
+const MyProjectListItem = ({_id, name, budget, remaining, isActive, onTimerClick, onEditClick, onDeleteClick}) => (
     <div className="list-item">
         <span className='project-name'>{name}{' - '}</span> 
         <span className='label'>budget: </span>{ms(budget)}{' '}

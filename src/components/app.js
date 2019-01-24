@@ -10,6 +10,7 @@ import MyProjectList from './my-project-list';
 import ProjectView from './project-view';
 import CreateProject from './create-project';
 import CreateTask from './create-task';
+import Logout from './logout';
 import {refreshAuthToken} from '../actions/auth';
 import {fetchProjects} from '../actions/projects';
 import './app.css';
@@ -60,6 +61,7 @@ export class App extends React.Component {
                 <Route exact path="/projects/:id" component={ProjectView} />
                 <Route exact path="/projectcreate" component={CreateProject} />
                 <Route exact path="/taskcreate" component={CreateTask} />
+                <Route exact path="/logout" component={Logout} />
             </div>
         );
     }

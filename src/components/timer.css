@@ -1,0 +1,16 @@
+.break-timer {
+  display: none;
+}
+
+.timer-box {
+  background-color:#8fd0e0;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 5px;
+  position: absolute;
+  right: 10%;
+  text-align: center;
+  top: 15%;
+  width: 35%;
+}

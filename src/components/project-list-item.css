@@ -1,0 +1,73 @@
+
+.list-item {
+  padding-left: 20px;
+  font-size: 1em;
+  position: relative;
+}
+
+.list-item a{
+  text-decoration: none;
+  display: inline;
+}
+
+.list-item .start-timer{
+  padding-left: 15px;
+}
+
+.list-item i {
+  padding: 0 5px;
+}
+
+.fa-trash-alt {
+  color: red;
+}
+.project-name {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.label {
+  font-style: italic;
+  font-weight: 500;
+  color: blue;
+  padding: 0 2px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

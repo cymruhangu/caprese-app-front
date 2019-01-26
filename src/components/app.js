@@ -1,12 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
-
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
+import ProjectList from './project-list';
+import MyProjectList from './my-project-list';
+import ProjectView from './project-view';
+import CreateProject from './create-project';
+import CreateTask from './create-task';
+import Logout from './logout';
 import {refreshAuthToken} from '../actions/auth';
+import {fetchProjects} from '../actions/projects';
+import './app.css';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -17,6 +24,10 @@ export class App extends React.Component {
             // Stop refreshing when we log out
             this.stopPeriodicRefresh();
         }
+    }
+
+    componentDidMount(){
+        this.props.dispatch(fetchProjects());
     }
 
     componentWillUnmount() {
@@ -45,6 +56,12 @@ export class App extends React.Component {
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
+                <Route exact path="/projects" component={ProjectList} />
+                <Route exact path="/my-projects" component={MyProjectList} />
+                <Route exact path="/projects/:id" component={ProjectView} />
+                <Route exact path="/projectcreate" component={CreateProject} />
+                <Route exact path="/taskcreate" component={CreateTask} />
+                <Route exact path="/logout" component={Logout} />
             </div>
         );
     }

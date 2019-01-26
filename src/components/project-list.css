@@ -1,0 +1,14 @@
+html{
+  background-color: #b4e0de;
+  /* background-image: none; */
+}
+
+.project-list h1 {
+  padding-left: 15px;
+}
+
+.project-list {
+  background-color: yellow;
+  width: 40%;
+  text-align: left;
+}

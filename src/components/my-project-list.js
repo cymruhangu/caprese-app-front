@@ -12,7 +12,6 @@ export class  MyProjectList extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      // projects: this.props.projects.filter(project => project.owner._id === this.props.userid)
       userid: this.props.userid
     }
     this.onTimerClick = this.onTimerClick.bind(this);
@@ -30,10 +29,10 @@ export class  MyProjectList extends React.Component {
 
   onDeleteClick(id) {
     this.props.dispatch(deleteProject(id));
-    this.props.history.push('/');
+    this.props.history.push('/my-projects');
   }
   render() {
-    // console.log(this.props.projects);
+    console.log(this.props.projects);
    return (
       <div className='project-list'>
         <h1>My Projects</h1>
@@ -54,11 +53,9 @@ export class  MyProjectList extends React.Component {
   
 
 const mapStateToProps = (state, props) => {
-  // console.log(state.projects);
-  // console.log(this.state.userid);
-    return {
+  console.log(state.projects);
+     return {
       projects: state.projects.filter(project => project.owner._id === state.auth.currentUser.id),
-      // projects: state.projects,
       userid: state.auth.currentUser.id
     }
 };

@@ -30,6 +30,7 @@ export const addProjectSuccess = project => ({
 //POST Project
 export const ADD_PROJECT = 'ADD_PROJECT';
 export const addProject = project => dispatch => {
+  console.log(project);
   return fetch(`${API_BASE_URL}/projects`, {
     method: 'POST',
     headers: {
@@ -37,11 +38,11 @@ export const addProject = project => dispatch => {
     },
     body: JSON.stringify(project)
   })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then(
-      dispatch(addProjectSuccess(project))
-    )
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(
+    dispatch(addProjectSuccess(project))
+  )
     .catch(err => {
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {

@@ -2,11 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
+// import { MyProjectList } from './my-project-list';
 // import {fetchProjects} from '../actions/projects';
 // import ProjectList from './project-list';
 
 export class Dashboard extends React.Component {
-    componentDidMount() {
+    componentWillMount() {
         this.props.dispatch(fetchProtectedData());
         // this.props.dispatch(fetchProjects());
     }
@@ -20,10 +21,7 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
-                <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
-                </div>
-            
+               
             </div>
         );
     }

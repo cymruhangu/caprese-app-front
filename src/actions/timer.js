@@ -4,9 +4,9 @@ export const updateTime = current => ({
   current,
 });
 
-export const UPDATE_PROJECTID = 'UPDATE_CURRENT_ID';
-export const updateProjectId = (updates) => ({
-    type: UPDATE_PROJECTID,
+export const UPDATE_PROJECT_DATA = 'UPDATE_PROJECT_DATA';
+export const updateProjectData = (updates) => ({
+    type: UPDATE_PROJECT_DATA,
     updates
 });
 

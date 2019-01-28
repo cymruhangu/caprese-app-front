@@ -37,14 +37,14 @@ class TaskForm extends React.Component {
                 parent: this.state.parent,
                 description: this.state.description,
                 budget: this.state.budget * 3600000,
-                remaining: this.state.budget * 3600000,
-                tasks:[]
+                remaining: this.state.budget * 3600000
             });
         }
+        this.setState(() =>({name: '', description: '', budget:0, remaining:0}));
     };
 
     render(){
-      console.log(this.props.tasks);
+      console.log(this.state.name);
         return (
             <div>
               <h3>Creating Task for {this.state.parent}</h3>
@@ -79,7 +79,7 @@ class TaskForm extends React.Component {
 } 
 
 const mapStateToProps = state => {
-  // console.log(state.auth.currentUser);
+  console.log(state.tasks);
    return {
     tasks: state.tasks,
     user: state.auth.currentUser.id

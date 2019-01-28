@@ -13,9 +13,6 @@ import {setAuthToken, refreshAuthToken} from './actions/auth';
 const initialState = {};
 const middleware = [thunk];
 
-// const enhancers = compose(
-//     window.devToolsExtension ? window.devToolsExtension() : f => f
-// );
 
 const store = createStore(
     combineReducers({

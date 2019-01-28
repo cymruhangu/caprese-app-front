@@ -8,7 +8,19 @@ html{
 }
 
 .project-list {
-  background-color: yellow;
-  width: 40%;
+  background-color: lightgrey;
+  border-radius: 10px;
+  left: 10px;
+  width: 45%;
   text-align: left;
+  position: static;
+  margin-left: 15px;
+  top: 15%;
+}
+
+.project-name {
+  margin-bottom: 5px;;
+}
+.project-info {
+  margin-left: 10px;
 }

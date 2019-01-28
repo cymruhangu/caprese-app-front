@@ -3,13 +3,13 @@ import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
+
+//Fetch Projects
 export const FETCH_PROJECTS_SUCCESS = 'FETCH_PROJECTS_SUCCESS';
 export const fetchProjectsSuccess = projects => ({
   type: FETCH_PROJECTS_SUCCESS,
   projects,
 });
-
-//Fetch Projects
 export const fetchProjects = () => dispatch => {
   fetch(`${API_BASE_URL}/projects`).then(res => {
       if (!res.ok) {
@@ -22,6 +22,7 @@ export const fetchProjects = () => dispatch => {
   });
 };
 
+//ADD PROJECT
 export const ADD_PROJECT_SUCCESS = 'ADD_PROJECT_SUCCESS';
 export const addProjectSuccess = project => ({
   type: ADD_PROJECT_SUCCESS,
@@ -40,9 +41,10 @@ export const addProject = project => dispatch => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(
-    dispatch(addProjectSuccess(project))
-  )
+  .then(newProject => {
+    console.log(newProject);
+    dispatch(addProjectSuccess(newProject));
+  })
     .catch(err => {
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {

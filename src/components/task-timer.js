@@ -2,24 +2,22 @@ import React from 'react';
 import ms from 'pretty-ms';
 import { connect } from 'react-redux';
 import { updateProjectData } from '../actions/timer';
-import { updateProject } from '../actions/projects';
+import { updateTask} from '../actions/tasks';
 import BreakTimerModal from './break-timer-modal';
 import './timer.css';
 
-export class Timer2 extends React.Component {
+export class TaskTimer extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      current: this.props.work,
+      current: this.props.timer.work,
       isOn: false,
       start: '',
-      project: '',
-      projectRemaining: this.props.timer.projectRemaining,
-      projectBudget: '',
-      projectId: '',
       timeRemains: true,
+      projectRemaining: this.props.timer.projectRemaining,
+      workTime: '',
       break: false,
-      breaktime: this.props.breaktime
+      breaktime: this.props.timer.break
     }
     this.startTimer = this.startTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this) ;
@@ -29,45 +27,44 @@ export class Timer2 extends React.Component {
 
   startTimer() {
     console.log('start timer clicked');
-    console.log(this.state);
-    if (!this.state.isOn && this.state.timeRemains && this.props.timer.projectRemaining > this.state.current) {
+    if (!this.state.isOn && this.state.timeRemains) {
+      console.log('got in here');
       this.setState({
         isOn: true,
-        workTime: this.props.work,
-        start: this.props.work //Should these be both from this.state?
+        workTime: this.props.timer.work,
+        start: this.props.timer.work,
+        projectRemaining: this.props.timer.projectRemaining
       });
       console.log(this.state);
-      this.timer = setInterval(() => this.setState({
-        current: this.state.current - 1000,
-        projectRemaining: this.state.projectRemaining - 1000
-      }), 1000);
+      this.timer = setInterval(() => {
+        this.setState({
+          current: this.state.current - 1000,
+          projectRemaining: this.state.projectRemaining - 1000
+      });
+      console.log(this.state.current);
+      this.props.dispatch(updateProjectData({remaining: this.state.current, projectRemaining: this.state.projectRemaining}));
+    
+    }, 1000);
+      // this.timer = setInterval(() => this.setState({
+      //   current: this.state.current - 1000,
+      //   projectRemaining: this.state.projectRemaining - 1000
+      // }), 1000);
       // this.props.dispatch(updateProjectId(this.state.id));
       setTimeout( this.stopTimer, this.props.timer.work);
     }
   }
   
-  // pauseTimer() {
-  //   console.log('pauseTimer called');
-  //   if (this.state.isOn) {
-  //     this.setState({isOn: false});
-  //     const newRemaining = this.props.remaining - this.state.current;
-  //     console.log(newRemaining);
-  //     this.props.dispatch(updateProjectData({remaining:this.state.current, projectRemaining: newRemaining}));
-  //     this.props.dispatch(updateProject(this.props.timer.projectId, {id: this.props.timer.projectI, remaining: newRemaining}));
-  //     clearInterval(this.timer)
-  //   }
-  // }
 
   stopTimer() {
     console.log('stopTimer called');
     // console.log(this.state);
     if (this.state.isOn) {
       this.setState({isOn: false});
-      const newRemaining = this.props.timer.projectRemaining - this.props.work;
-      console.log(this.state.projectRemaining);
+      const newRemaining = this.props.timer.projectRemaining - this.props.timer.work;
+      console.log(this.props.timer.projectRemaining);
       console.log(newRemaining);
-      this.props.dispatch(updateProjectData({remaining:this.state.current, projectRemaining: newRemaining}));
-      this.props.dispatch(updateProject(this.props.timer.projectId, {id: this.props.timer.projectId, remaining: newRemaining}));
+      this.props.dispatch(updateProjectData({remaining: this.state.current, projectRemaining: newRemaining}));
+      this.props.dispatch(updateTask(this.props.timer.projectId, {id: this.props.timer.projectId, remaining: newRemaining}));
       clearInterval(this.timer)
     }
     //If no time remains toggle between pomodoro and break
@@ -88,11 +85,11 @@ export class Timer2 extends React.Component {
   endBreak = () => { 
     this.setState(() => (
       { 
-        current: this.props.work,
-        start: this.props.work,
+        current: this.props.timer.work,
+        start: this.props.timer.work,
         isOn: false,
         break: false, 
-        breaktime: this.props.breaktime
+        breaktime: this.props.timer.break
       }
     ));
   };
@@ -103,22 +100,21 @@ export class Timer2 extends React.Component {
   };
 
   startBreakTimer = () => {
-    this.breakTimer = setInterval(() => this.setState({breaktime: this.state.breaktime - 1000}), 1000);
+    this.breakTimer = setInterval(() => this.setState({breaktime: this.props.timer.break - 1000}), 1000);
     setTimeout(() => { clearInterval(this.breakTimer); this.endBreak(); }, this.props.timer.break);
   }
   render() {
     //Disable buttons if no project 
     let start = <button onClick={this.startTimer}>Start</button>
     // let stop = <button onClick={this.pauseTimer}>Pause</button>
-    let CurrentProject = this.props.timer.projectId ? this.props.projects.find((project) => project._id === this.props.timer.projectId) : 'No project selected';
-    //
+    let CurrentTask = this.props.timer.projectId ? this.props.tasks.find((task) => task._id === this.props.timer.projectId) : 'No project selected';
     return(
       <div className='timer-box'>
-        <h3>Current Project: {this.props.timer.projectName ? this.props.timer.projectName : 'No project selected'}</h3>
+        <h3>Current Task: {this.props.timer.projectName ? this.props.timer.projectName : 'No project selected'}</h3>
         <h3>budget: {this.props.timer.projectBudget ? ms(this.props.timer.projectBudget): 0 }</h3>
-        <h3>remaining:{CurrentProject._id ? ms(CurrentProject.remaining): 0}</h3>
+        <h3>remaining:{CurrentTask._id ? ms(CurrentTask.remaining): 0}</h3>
         <h3>Work Timer: {ms(this.state.current)}</h3>
-        <h4>{CurrentProject._id}</h4>
+        <h4>{CurrentTask._id}</h4>
         {start}
         <BreakTimerModal 
           breakOn={this.state.break}
@@ -137,14 +133,16 @@ export class Timer2 extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
+  console.log(state.timer);
   return {
     timer: state.timer,
     remaining: state.timer.remaining,
     work: state.timer.work,
-    breaktime: state.timer.break,
     projects: state.projects,
-    project: state.projects.find((project) => project._id === props.projectId)
+    project: state.projects.find((project) => project._id === props.projectId),
+    tasks: state.tasks,
+    task: state.tasks.find((task) => task._id === props.taskId)
   }
 };
 
-export default connect(mapStateToProps)(Timer2);
+export default connect(mapStateToProps)(TaskTimer);

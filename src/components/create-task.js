@@ -10,7 +10,7 @@ const CreateTask = (props) => (
             projectId={props.projectId}
             onSubmit={(task) => {
                 props.dispatch(addTask(task));
-                this.props.history.push('/my-projects');
+                // props.history.push('/my-projects');
             }}
         />
     </div>

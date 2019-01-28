@@ -1,7 +1,10 @@
 
 .project-view {
-  border: 2px solid yellow;
-  width: 40%;
+  background-color: lightgrey;
+  border-radius: 10px;
+  margin-left: 18px;
+  text-align: left;
+  width: 45%;
 }
 
 .hidden-task {

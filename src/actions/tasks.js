@@ -1,7 +1,7 @@
 import {SubmissionError} from 'redux-form';
-
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
+// import { updateProjectTasks } from '../actions/projects';
 
 export const FETCH_TASKS_SUCCESS = 'FETCH_TASKS_SUCCESS';
 export const fetchTasksSuccess = tasks => ({
@@ -17,7 +17,7 @@ export const fetchTasks = () => dispatch => {
       }
       return res.json();
   }).then(tasks => {
-    // console.log(tasks);
+    console.log(tasks);
     dispatch(fetchTasksSuccess(tasks));
   });
 };
@@ -39,9 +39,11 @@ export const addTask = task => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(
-      dispatch(addTaskSuccess(task))
-    )
+    .then(newTask => {
+      console.log(newTask);
+      dispatch(addTaskSuccess(newTask));
+      // dispatch(updateProjectTasks({id: newTask.parent, tasks: [newTask.id]}))
+    })
     .then(console.log(task))
     .catch(err => {
       const {reason, message, location} = err;
@@ -55,7 +57,6 @@ export const addTask = task => dispatch => {
       }
     });
 };
-
 
 //UPDATE TASK SUCCESS
 export const UPDATE_TASK_SUCCESS = 'UPDATE_TASK_SUCCESS';

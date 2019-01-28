@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
 import MyProjectListItem from './my-project-list-item';
-// import Timer2 from './timer2';
-import { updateProjectId} from '../actions/timer';
+import Timer2 from './timer2';
+import { updateProjectData} from '../actions/timer';
 import { deleteProject } from '../actions/projects';
 import './project-list.css';
 // import { fetchProjects } from '../actions/projects';
@@ -20,7 +20,8 @@ export class  MyProjectList extends React.Component {
   }
 
   onTimerClick(project){
-    this.props.dispatch(updateProjectId(project));
+    this.props.dispatch(updateProjectData(project));
+    console.log(project);
   }
 
   onEditClick(id){
@@ -28,11 +29,23 @@ export class  MyProjectList extends React.Component {
   }
 
   onDeleteClick(id) {
+    this.clearTimer();
     this.props.dispatch(deleteProject(id));
     this.props.history.push('/my-projects');
   }
+
+  clearTimer = () => {
+    const clearObj = {
+      projectId: '', 
+      projectName: '', 
+      projectBudget: '',
+      projectRemaining: ''
+    };
+    this.props.dispatch(updateProjectData(clearObj));
+  }
+
   render() {
-    console.log(this.props.projects);
+    // const altID = this.props.newProject.id;
    return (
       <div className='project-list'>
         <h1>My Projects</h1>
@@ -40,12 +53,13 @@ export class  MyProjectList extends React.Component {
             this.props.projects.map((project, index) => (
                 <MyProjectListItem key={index}
                     {...project}
+                    altID = {this.props.newProject ? project.owner : undefined}
                     onTimerClick={this.onTimerClick}
                     onDeleteClick={this.onDeleteClick}
                     onEditClick={this.onEditClick}
                 />))
         }
-        
+        <Timer2 />
       </div>
     )
   }
@@ -53,9 +67,9 @@ export class  MyProjectList extends React.Component {
   
 
 const mapStateToProps = (state, props) => {
-  console.log(state.projects);
      return {
-      projects: state.projects.filter(project => project.owner._id === state.auth.currentUser.id),
+      projects: state.projects.filter(project => project.owner._id || project.owner === state.auth.currentUser.id),
+      newProject: state.projects.filter(project => project.owner === state.auth.currentUser.id),
       userid: state.auth.currentUser.id
     }
 };

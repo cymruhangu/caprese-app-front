@@ -20,9 +20,10 @@ export class HeaderBar extends React.Component {
         activeNav = (
           <div className="active-nav">
             <NavLink to="/" activeClassName="is-active">Home</NavLink>
-            <NavLink to="/projects" activeClassName="is-active">All Projects</NavLink>
             <NavLink to="/my-projects" activeClassName="is-active">My Projects</NavLink>
             <NavLink to="/projectcreate" activeClassName="is-active">Create Project</NavLink>
+            <NavLink to="/projects" activeClassName="is-active">All Projects</NavLink>
+            <NavLink to="/tasks" activeClassName="is-active">All Tasks</NavLink>
             <NavLink to="/logout" activeClassName="is-active">Logout</NavLink>
           </div>
           );

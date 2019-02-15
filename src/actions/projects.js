@@ -16,9 +16,27 @@ export const fetchProjects = () => dispatch => {
           return Promise.reject(res.statusText);
       }
       return res.json();
-  }).then(projects => {
+  }).then(data => {
+    console.log(data);
+    dispatch(fetchProjectsSuccess(data));
+  });
+};
+
+//FETCH ONE PROJECT
+export const FETCH_ONE_PROJECT_SUCCESS = 'FETCH_PROJECT_SUCCESS';
+export const fetchOneProjectsSuccess = project => ({
+  type: FETCH_ONE_PROJECT_SUCCESS,
+  project,
+});
+export const fetchOneProject = (id) => dispatch => {
+  fetch(`${API_BASE_URL}/projects/${id}`).then(res => {
+      if (!res.ok) {
+          return Promise.reject(res.statusText);
+      }
+      return res.json();
+  }).then(project => {
     // console.log(projects);
-    dispatch(fetchProjectsSuccess(projects));
+    dispatch(fetchOneProjectsSuccess(project));
   });
 };
 
@@ -31,7 +49,7 @@ export const addProjectSuccess = project => ({
 //POST Project
 export const ADD_PROJECT = 'ADD_PROJECT';
 export const addProject = project => dispatch => {
-  console.log(project);
+  // console.log(project);
   return fetch(`${API_BASE_URL}/projects`, {
     method: 'POST',
     headers: {
@@ -44,6 +62,7 @@ export const addProject = project => dispatch => {
   .then(newProject => {
     console.log(newProject);
     dispatch(addProjectSuccess(newProject));
+    dispatch(fetchOneProject(newProject.id));
   })
     .catch(err => {
       const {reason, message, location} = err;

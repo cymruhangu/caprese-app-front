@@ -21,8 +21,6 @@ export class TaskTimer extends React.Component {
     }
     this.startTimer = this.startTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this) ;
-    // this.pauseTimer = this.pauseTimer.bind(this); 
-  //  console.log(props.project);
   }
 
   startTimer() {

@@ -62,6 +62,7 @@ export class  MyTaskList extends React.Component {
   
 
 const mapStateToProps = (state, props) => {
+  console.log(state.tasks);
      return {
       tasks: state.tasks.filter(task => task.parent._id  === props.projectId),
       newTask: state.tasks.filter(task => task.owner === state.auth.currentUser.id),

@@ -3,7 +3,7 @@ import React from 'react';
 import ms from 'pretty-ms';
 import './project-list-item.css';
 
-const MyProjectListItem = ({_id, name, budget, remaining, isActive, onTimerClick, onEditClick, onDeleteClick, altID}) => (
+const MyProjectListItem = ({_id, name, budget, remaining, isActive, onTimerClick, onEditClick, onDeleteClick}) => (
     <div className="list-item">
         <p className='project-name'>{name}{':'}</p> 
         <div className="project-info">
@@ -14,9 +14,8 @@ const MyProjectListItem = ({_id, name, budget, remaining, isActive, onTimerClick
             {isActive ? 
               <div className="tooltip"><i className="far fa-clock" onClick={(e) => {
                 e.preventDefault();
-                console.log(altID);
                 onTimerClick({
-                  projectId: _id ? _id : altID, 
+                  projectId: _id, 
                   projectName: name, 
                   projectBudget:budget, 
                   projectRemaining: remaining});

@@ -18,7 +18,7 @@ export class  TaskList extends React.Component {
   
 
 const mapStateToProps = (state) => {
-  console.log(state.tasks);
+  // console.log(state.tasks);
     return {
         tasks: state.tasks
     }

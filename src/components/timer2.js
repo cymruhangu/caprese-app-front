@@ -110,7 +110,7 @@ export class Timer2 extends React.Component {
     //Disable buttons if no project 
     let start = <button onClick={this.startTimer}>Start</button>
     // let stop = <button onClick={this.pauseTimer}>Pause</button>
-    let CurrentProject = this.props.timer.projectId ? this.props.projects.find((project) => project._id === this.props.timer.projectId) : 'No project selected';
+    let CurrentProject = this.props.timer.projectId ? this.props.projects.find((project) => project.id === this.props.timer.projectId) : 'No project selected';
     console.log(CurrentProject);
     //
     return(

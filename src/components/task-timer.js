@@ -105,12 +105,12 @@ export class TaskTimer extends React.Component {
     //Disable buttons if no project 
     let start = <button onClick={this.startTimer}>Start</button>
     // let stop = <button onClick={this.pauseTimer}>Pause</button>
-    let CurrentTask = this.props.timer.projectId ? this.props.tasks.find((task) => task._id === this.props.timer.projectId) : 'No project selected';
+    let CurrentTask = this.props.timer.projectId ? this.props.tasks.find((task) => task.id === this.props.timer.projectId) : 'No project selected';
     return(
       <div className='timer-box'>
         <h3>Current Task: {this.props.timer.projectName ? this.props.timer.projectName : 'No project selected'}</h3>
         <h3>budget: {this.props.timer.projectBudget ? ms(this.props.timer.projectBudget): 0 }</h3>
-        <h3>remaining:{CurrentTask._id ? ms(CurrentTask.remaining): 0}</h3>
+        <h3>remaining:{CurrentTask.id ? ms(CurrentTask.remaining): 0}</h3>
         <h3>Work Timer: {ms(this.state.current)}</h3>
         <h4>{CurrentTask._id}</h4>
         {start}

@@ -7,21 +7,31 @@ import {fetchProtectedData} from '../actions/protected-data';
 // import ProjectList from './project-list';
 
 export class Dashboard extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      active: this.props.userProjects.filter(project => project.isActive).length,
+      completed: this.props.userProjects.filter(project => !project.isActive).length
+    }
+  
+    // this.onTimerClick = this.onTimerClick.bind(this);
+  }
     componentWillMount() {
-        this.props.dispatch(fetchProtectedData());
-        // this.props.dispatch(fetchProjects());
+      this.props.dispatch(fetchProtectedData()); //What should be done here? Maybe all fetching?  
     }
 
+    
     render() {
-        // console.log(this.props.projects);
-        // console.log(this.props.test);
+        console.log(`number projects is ${this.props.userProjects.length}`);
+        console.log(this.props.userProjects);
         return (
             <div className="dashboard">
-                <div className="dashboard-username">
-                    Username: {this.props.username}
-                </div>
+                <h3>Logged in as: </h3>
                 <div className="dashboard-name">Name: {this.props.name}</div>
-               
+                <div className="dashboard-username">Username: {this.props.username}</div> 
+                <div className="user-stats">
+                  <p>You currently have {this.state.active} active projects and {this.state.completed} completed</p>
+                </div>             
             </div>
         );
     }
@@ -34,7 +44,7 @@ const mapStateToProps = state => {
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data,
         projects: state.projects,
-        test: state
+        userProjects: state.projects.filter(project => project.owner._id  === state.auth.currentUser.id)
     };
 };
 

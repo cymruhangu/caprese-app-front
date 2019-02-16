@@ -6,6 +6,7 @@ import Timer2 from './timer2';
 import { updateProjectData} from '../actions/timer';
 import { deleteProject } from '../actions/projects';
 import './project-list.css';
+import { updateProject } from '../actions/projects';
 // import { fetchProjects } from '../actions/projects';
 
 export class  MyProjectList extends React.Component { 
@@ -16,6 +17,7 @@ export class  MyProjectList extends React.Component {
     }
     this.onTimerClick = this.onTimerClick.bind(this);
     this.onEditClick = this.onEditClick.bind(this);
+    this.onCompleteClick = this.onCompleteClick.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
   }
 
@@ -26,6 +28,15 @@ export class  MyProjectList extends React.Component {
 
   onEditClick(id){
     this.props.history.push(`/projects/${id}`);
+  }
+
+  onCompleteClick(id){
+    const update = {
+      id: id,
+      isActive: false
+    };
+    console.log('project completed');
+    this.props.dispatch(updateProject(id, update));
   }
 
   onDeleteClick(id) {
@@ -53,9 +64,9 @@ export class  MyProjectList extends React.Component {
             this.props.projects.map((project, index) => (
                 <MyProjectListItem key={index}
                     {...project}
-                    altID = {this.props.newProject ? project.owner : undefined}
                     onTimerClick={this.onTimerClick}
                     onDeleteClick={this.onDeleteClick}
+                    onCompleteClick={this.onCompleteClick}
                     onEditClick={this.onEditClick}
                 />))
         }

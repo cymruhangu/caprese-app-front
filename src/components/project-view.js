@@ -30,7 +30,7 @@ class ProjectView extends React.Component {
           <div className="tasks">
             <h3>Tasks:</h3>
             <MyTaskList 
-              projectId={this.props.project._id}
+              projectId={this.props.project.id}
             />
           </div>
           
@@ -46,10 +46,8 @@ class ProjectView extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-	// console.log(state.projects);
-	// console.log(props.match.params.id);
 	return {
-    project: state.projects.find((project) => project._id === props.match.params.id),
+    project: state.projects.find((project) => project.id === props.match.params.id),
     tasks: state.tasks,
     myTasks: state.tasks.filter(task => task.parent._id === props.match.params.id)
 	};

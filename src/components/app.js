@@ -28,7 +28,7 @@ export class App extends React.Component {
         }
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.props.dispatch(fetchProjects());
         this.props.dispatch(fetchTasks());
     }

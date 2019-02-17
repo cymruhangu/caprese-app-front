@@ -15,7 +15,7 @@ const BreakTimerModal = (props) => (
     > 
         <div className="break-message">
           <h1>Time for a Break</h1>
-          <p><q className="q-left">There is virtue in work and there is virtue in rest.  Use both and overlook neither</q></p>
+          <p><q className="q-left">There is virtue in work and there is virtue in rest</q></p>
           <p><q className="q-right">Use both and overlook neither</q></p>
           <p>-Alan Cohen</p>
           <p>{ms(props.breakTime)}</p>

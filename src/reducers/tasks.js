@@ -7,7 +7,7 @@ export default (state = tasksInitialState, action) => {
     case ACTIONS.FETCH_TASKS_SUCCESS:
     //Need to check if store is empty.
       console.log('FETCH_TASK_SUCCESS');
-      console.log(action.task);
+      console.log(action.tasks);
       return [...state, ...action.tasks];
     case ACTIONS.ADD_TASK_SUCCESS:
       console.log('ADD_TASK_SUCCESS');

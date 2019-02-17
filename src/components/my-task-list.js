@@ -42,9 +42,11 @@ export class  MyTaskList extends React.Component {
   }
 
   render() {
+    console.log('into the render');
+    console.log(this.props.tasks);
    return (
     <div className='task-list'>
-      <h1>My Tasks</h1>
+      <h3>Tasks for </h3>
       {
         this.props.tasks.map((task, index) => (
           <TaskListItem key={index}
@@ -67,7 +69,7 @@ const mapStateToProps = (state, props) => {
       tasks: state.tasks.filter(task => task.parent._id  === props.projectId),
       newTask: state.tasks.filter(task => task.owner === state.auth.currentUser.id),
       userid: state.auth.currentUser.id,
-      project: state.projects.filter(project => project._id === props.projectId)
+      project: state.projects.filter(project => project.id === props.projectId)
     }
 };
 

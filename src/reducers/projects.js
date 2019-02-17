@@ -37,7 +37,7 @@ export default (state = projectsInitialState, action) => {
       console.log('UPDATE_SUCCESS');
       console.log(action.updates)
       const updatedProject = state.map((project) => {
-        if(project._id === action.id){
+        if(project.id === action.id){
           return {
             ...project, 
             ...action.updates

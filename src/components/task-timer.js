@@ -137,9 +137,9 @@ const mapStateToProps = (state, props) => {
     remaining: state.timer.remaining,
     work: state.timer.work,
     projects: state.projects,
-    project: state.projects.find((project) => project._id === props.projectId),
+    project: state.projects.find((project) => project.id === props.projectId),
     tasks: state.tasks,
-    task: state.tasks.find((task) => task._id === props.taskId)
+    task: state.tasks.find((task) => task.id === props.taskId)
   }
 };
 

@@ -8,7 +8,8 @@ export class  ProjectList extends React.Component {
     console.log(this.props.projects);
     return (
       <div className="project-list">
-        <h1>Project Templates</h1>
+        <h2>Project Templates</h2>
+        <div className="project-container">
         {
             this.props.projects.map((project, index) => (
                 <ProjectListItem key={index}
@@ -16,6 +17,8 @@ export class  ProjectList extends React.Component {
                     user={this.props.user}
                 />))
         }
+        </div>
+        
       </div>
     )
   }

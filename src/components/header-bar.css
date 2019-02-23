@@ -4,12 +4,13 @@
   padding-right: 0;
   padding-top: 15px;
   color: white;
+  text-shadow: 2px 2px #141414;
 }
 
-/* .header-bar .is-active {
+.header-bar .is-active {
   font-weight: bold;
   color: red;
-} */
+}
 
 .header-bar a {
   text-decoration: none;
@@ -19,7 +20,7 @@
 
 .header-bar h1 {
   display: inline;
-  font-size: 2em;
+  font-size: 2.2em;
   padding-left: 10px;
   padding-right: 24%;
 }
@@ -32,4 +33,10 @@
 .active-nav {
   display: inline-block;
   position: relative;
+}
+
+@media only screen and (max-width: 400px){
+  .active-nav {
+    display: none;
+  }
 }

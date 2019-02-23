@@ -1,0 +1,58 @@
+.dashboard {
+  height: 70%;
+  width: 60%;
+  background-color: rgb(164, 169, 170, 0.4);
+  border-radius: 15px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.dashboard-name {
+  color:white;
+  font-size: 1.8em;
+  padding-bottom: 8px;
+  text-shadow: 2px 2px #141414;
+  
+}
+
+.user-stats {
+  color: whitesmoke;
+  font-size: 1.3em;
+  text-shadow: 2px 2px #141414;
+  margin: 0 auto;
+}
+
+.time-select {
+  padding: 12px 0;
+}
+
+.time-select h3 {
+  color: rgba(255, 255, 0, 0.801);
+  text-shadow: 2px 2px #141414;
+}
+
+.time-select label {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.time-select select {
+  font-size: .9em;
+}
+/* *************/
+/* RESPONSIVE */
+
+@media only screen and (max-width: 980px){
+  .dashboard {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .time-select select{
+    display: block;
+    margin: 0 auto;
+    padding-top: 5px;
+    color: blue;
+  }
+}

@@ -7,7 +7,7 @@ import BreakTimerModal from './break-timer-modal';
 import './timer.css';
 
 export class Timer2 extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       current: this.props.work,
@@ -22,9 +22,9 @@ export class Timer2 extends React.Component {
       breaktime: this.props.breaktime
     }
     this.startTimer = this.startTimer.bind(this);
-    this.stopTimer = this.stopTimer.bind(this) ;
+    this.stopTimer = this.stopTimer.bind(this);
     // this.pauseTimer = this.pauseTimer.bind(this); 
-  //  console.log(props.project);
+    //  console.log(props.project);
   }
 
   startTimer() {
@@ -42,36 +42,25 @@ export class Timer2 extends React.Component {
         projectRemaining: this.state.projectRemaining - 1000
       }), 1000);
       // this.props.dispatch(updateProjectId(this.state.id));
-      setTimeout( this.stopTimer, this.props.timer.work);
+      setTimeout(this.stopTimer, this.props.timer.work);
     }
   }
-  
-  // pauseTimer() {
-  //   console.log('pauseTimer called');
-  //   if (this.state.isOn) {
-  //     this.setState({isOn: false});
-  //     const newRemaining = this.props.remaining - this.state.current;
-  //     console.log(newRemaining);
-  //     this.props.dispatch(updateProjectData({remaining:this.state.current, projectRemaining: newRemaining}));
-  //     this.props.dispatch(updateProject(this.props.timer.projectId, {id: this.props.timer.projectI, remaining: newRemaining}));
-  //     clearInterval(this.timer)
-  //   }
-  // }
+
 
   stopTimer() {
     console.log('stopTimer called');
     // console.log(this.state);
     if (this.state.isOn) {
-      this.setState({isOn: false});
+      this.setState({ isOn: false });
       const newRemaining = this.props.timer.projectRemaining - this.props.work;
       console.log(this.state.projectRemaining);
       console.log(newRemaining);
-      this.props.dispatch(updateProjectData({remaining:this.state.current, projectRemaining: newRemaining}));
-      this.props.dispatch(updateProject(this.props.timer.projectId, {id: this.props.timer.projectId, remaining: newRemaining}));
+      this.props.dispatch(updateProjectData({ remaining: this.state.current, projectRemaining: newRemaining }));
+      this.props.dispatch(updateProject(this.props.timer.projectId, { id: this.props.timer.projectId, remaining: newRemaining }));
       clearInterval(this.timer)
     }
     //If no time remains toggle between pomodoro and break
-    if(!this.props.timer.projectRemaining ){
+    if (!this.props.timer.projectRemaining) {
       console.log('No time left in project!');
       this.setState({
         timeRemains: false
@@ -80,30 +69,30 @@ export class Timer2 extends React.Component {
       // POP up MODAL with Break Timer and close button
       this.startBreak();
     }
-    if(this.state.current === 0){
+    if (this.state.current === 0) {
       this.startBreak();
     }
   }
 
-  endBreak = () => { 
+  endBreak = () => {
     this.setState(() => (
-      { 
+      {
         current: this.props.work,
         start: this.props.work,
         isOn: false,
-        break: false, 
+        break: false,
         breaktime: this.props.breaktime
       }
     ));
   };
 
-  startBreak = () => { 
-    this.setState(() => ({ break: true}));
+  startBreak = () => {
+    this.setState(() => ({ break: true }));
     this.startBreakTimer();
   };
 
   startBreakTimer = () => {
-    this.breakTimer = setInterval(() => this.setState({breaktime: this.state.breaktime - 1000}), 1000);
+    this.breakTimer = setInterval(() => this.setState({ breaktime: this.state.breaktime - 1000 }), 1000);
     setTimeout(() => { clearInterval(this.breakTimer); this.endBreak(); }, this.props.timer.break);
   }
   render() {
@@ -113,23 +102,19 @@ export class Timer2 extends React.Component {
     let CurrentProject = this.props.timer.projectId ? this.props.projects.find((project) => project.id === this.props.timer.projectId) : 'No project selected';
     console.log(CurrentProject);
     //
-    return(
+    return (
       <div className='timer-box'>
         <h3>Current Project: {this.props.timer.projectName ? this.props.timer.projectName : 'No project selected'}</h3>
-        <h3>budget: {this.props.timer.projectBudget ? ms(this.props.timer.projectBudget): 0 }</h3>
-        <h3>remaining:{CurrentProject.id ? ms(CurrentProject.remaining): 0}</h3>
+        <h3>budget: {this.props.timer.projectBudget ? ms(this.props.timer.projectBudget) : 0}</h3>
+        <h3>remaining:{CurrentProject.id ? ms(CurrentProject.remaining) : 0}</h3>
         <h3>Work Timer: {ms(this.state.current)}</h3>
         <h4>{CurrentProject._id}</h4>
         {start}
-        <BreakTimerModal 
+        <BreakTimerModal
           breakOn={this.state.break}
           endBreak={this.endBreak}
           breakTime={this.state.breaktime}
         />
-        <div>
-          <button onClick={this.startBreak}>Open Modal</button>
-        </div>
-
       </div>
     )
   }

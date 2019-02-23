@@ -1,7 +1,8 @@
 
 .list-item {
   padding-left: 20px;
-  font-size: 1em;
+  margin-bottom: 0;
+  font-size: 1.1em;
   position: relative;
 }
 
@@ -17,7 +18,12 @@
 .list-item i {
   padding: 0 5px;
 }
-
+.list-item p {
+  display: inline-block;
+  padding-right: 10px;
+  margin-bottom: 0;
+  font-size: 1.1em;
+}
 .fa-trash-alt {
   color: red;
 }
@@ -32,6 +38,7 @@
   color: blue;
   padding: 0 2px;
 }
+
 
 .tooltip {
   position: relative;

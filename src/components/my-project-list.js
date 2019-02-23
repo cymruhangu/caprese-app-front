@@ -61,7 +61,8 @@ export class  MyProjectList extends React.Component {
     // const altID = this.props.newProject.id;
    return (
       <div className='project-list'>
-        <h1>My Projects</h1>
+        <h2>My Projects and Work items:</h2>
+        <div className='project-container'> 
         {
             this.props.projects.map((project, index) => (
                 <MyProjectListItem key={index}
@@ -72,6 +73,8 @@ export class  MyProjectList extends React.Component {
                     // onEditClick={this.onEditClick}
                 />))
         }
+        </div>
+        
         <Timer2 />
       </div>
     )

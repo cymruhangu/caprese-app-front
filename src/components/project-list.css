@@ -16,6 +16,11 @@ html{
   position: static;
   margin-left: 15px;
   top: 15%;
+  height: 100%;
+}
+.project-container {
+  height: 750px;
+  overflow-y: scroll;
 }
 
 .project-name {

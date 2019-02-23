@@ -21,8 +21,8 @@ const ProjectListItem = (props) => {
   return (
     <div className="list-item">
         
-            <p>{props.name}:  budget: {ms(props.budget)} owner: {props.owner.username} 
-            {'  '}<button onClick={onCloneClick}>Clone</button>
+            <p>{props.name}:  budget: {ms(props.budget)}
+            {'   '}<button onClick={onCloneClick}>Clone</button>
             </p>
        
     </div>

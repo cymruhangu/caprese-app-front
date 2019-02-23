@@ -30,9 +30,9 @@ export default (state = projectsInitialState, action) => {
       console.log(state);
       return [...state, action.project];
     case ACTIONS.DELETE_PROJECT_SUCCESS:
-      console.log('DELETE_SUCCESS');
+      console.log('DELETE_PROJECT_SUCCESS');
       console.log(state);
-      return state.filter((project) => project._id !== action.id);
+      return state.filter((project) => project.id !== action.id);
     case ACTIONS.UPDATE_PROJECT_SUCCESS:
       console.log('UPDATE_SUCCESS');
       console.log(action.updates)

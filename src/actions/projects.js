@@ -77,7 +77,6 @@ export const addProject = project => dispatch => {
     });
 };
 
-
 //UPDATE PROJECT SUCCESS
 export const UPDATE_PROJECT_SUCCESS = 'UPDATE_PROJECT_SUCCESS';
 export const updateProjectSuccess = (id, updates) => ({

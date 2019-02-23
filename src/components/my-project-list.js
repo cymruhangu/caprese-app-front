@@ -16,7 +16,7 @@ export class  MyProjectList extends React.Component {
       userid: this.props.userid
     }
     this.onTimerClick = this.onTimerClick.bind(this);
-    this.onEditClick = this.onEditClick.bind(this);
+    // this.onEditClick = this.onEditClick.bind(this);
     this.onCompleteClick = this.onCompleteClick.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
   }
@@ -26,9 +26,9 @@ export class  MyProjectList extends React.Component {
     console.log(project);
   }
 
-  onEditClick(id){
-    this.props.history.push(`/projects/${id}`);
-  }
+  // onEditClick(id){
+  //   this.props.history.push(`/projects/${id}`);
+  // }
 
   onCompleteClick(id){
     const update = {
@@ -40,6 +40,8 @@ export class  MyProjectList extends React.Component {
   }
 
   onDeleteClick(id) {
+    console.log('delete clicked');
+    console.log(id);
     this.clearTimer();
     this.props.dispatch(deleteProject(id));
     this.props.history.push('/my-projects');
@@ -67,7 +69,7 @@ export class  MyProjectList extends React.Component {
                     onTimerClick={this.onTimerClick}
                     onDeleteClick={this.onDeleteClick}
                     onCompleteClick={this.onCompleteClick}
-                    onEditClick={this.onEditClick}
+                    // onEditClick={this.onEditClick}
                 />))
         }
         <Timer2 />

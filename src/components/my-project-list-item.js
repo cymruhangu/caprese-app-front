@@ -23,15 +23,7 @@ const MyProjectListItem = ({id, name, budget, remaining, isActive, onTimerClick,
               <span className="tooltiptext">Project timer</span>
             </div>
             : ''}{'  '}
-            <div className="tooltip">
-              <i className="far fa-edit"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onEditClick(id);
-                }}
-              ></i>
-              <span className="tooltiptext">Edit project</span>
-            </div>
+
             {isActive ?
               <div className="tooltip">
               <i className="far fa-check-square" onClick={ (e) => {

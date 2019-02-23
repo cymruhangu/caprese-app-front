@@ -9,7 +9,6 @@ import prettyMs from 'pretty-ms';
 import './project-view.css';
 
 
-//create method inside component and call from eventhandler
 class ProjectView extends React.Component {
   constructor(props){
     super(props);

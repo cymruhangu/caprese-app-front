@@ -6,13 +6,23 @@ import { clearAuthToken } from '../local-storage';
 import './header-bar.css';
 
 export class HeaderBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hamburgerOpen: true
+    }
+    this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
+    this.logOut = this.logOut.bind(this);
+  }
   logOut() {
-    // this.props.history.push('/');
     this.props.dispatch(clearAuth());
     clearAuthToken();
-    // return <Redirect to="/" />;
   }
 
+  handleHamburgerClick() {
+    console.log('hamburger clicked');
+    // this.setState(() => ({ hamburgerOpen }));
+  }
   render() {
     // Only render the log out button if we are logged in
     let activeNav;
@@ -28,13 +38,16 @@ export class HeaderBar extends React.Component {
       );
     }
 
-
-
     return (
       <header className="header-bar">
         <i className="far fa-clock"></i>
         <h1>Caprese Project Timer</h1>
         {activeNav}
+        <div className="hamburger">
+          {this.state.hamburgerOpen ?
+            <i className="fas fa-bars" onClick={this.handleHamburgerClick}></i> :
+            <i className="fas fa-times"></i>}
+        </div>
       </header>
     );
   }

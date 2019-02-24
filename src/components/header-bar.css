@@ -30,12 +30,19 @@
   padding: 0 10px;
 }
 
+.header-bar .fas {
+  font-size: 3em;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+
 .active-nav {
   display: inline-block;
   position: relative;
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 1240px){
   .active-nav {
     display: none;
   }

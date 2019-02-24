@@ -9,9 +9,11 @@ export class HeaderBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hamburgerOpen: true
+      hamburgerOpen: true,
+      closeOpen: false
     }
     this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
+    this.handleCloseClick = this.handleCloseClick.bind(this);
     this.logOut = this.logOut.bind(this);
   }
   logOut() {
@@ -20,9 +22,13 @@ export class HeaderBar extends React.Component {
   }
 
   handleHamburgerClick() {
-    console.log('hamburger clicked');
-    // this.setState(() => ({ hamburgerOpen }));
+    this.setState(() => ({ hamburgerOpen: false, closeOpen: true}));
   }
+
+  handleCloseClick() {
+    this.setState(() => ({ closeOpen: false, hamburgerOpen: true }));
+  }
+
   render() {
     // Only render the log out button if we are logged in
     let activeNav;
@@ -46,7 +52,7 @@ export class HeaderBar extends React.Component {
         <div className="hamburger">
           {this.state.hamburgerOpen ?
             <i className="fas fa-bars" onClick={this.handleHamburgerClick}></i> :
-            <i className="fas fa-times"></i>}
+            <i className="fas fa-times" onClick={this.handleCloseClick}></i>}
         </div>
       </header>
     );

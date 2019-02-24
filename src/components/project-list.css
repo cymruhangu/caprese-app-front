@@ -11,15 +11,20 @@ html{
   background-color: lightgrey;
   border-radius: 10px;
   left: 10px;
-  width: 45%;
+  width: 50%;
   text-align: left;
   position: static;
   margin-left: 15px;
-  top: 15%;
-  height: 100%;
+  top: 14%;
 }
+
+.project-list h2 {
+  margin: 7px 5px;
+}
+
 .project-container {
-  height: 750px;
+  height: 620px;
+  border: 1px solid white;
   overflow-y: scroll;
 }
 

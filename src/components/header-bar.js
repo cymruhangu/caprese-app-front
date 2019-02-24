@@ -10,7 +10,8 @@ export class HeaderBar extends React.Component {
     super(props);
     this.state = {
       hamburgerOpen: true,
-      closeOpen: false
+      closeOpen: false,
+      navDisplay: true
     }
     this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
     this.handleCloseClick = this.handleCloseClick.bind(this);
@@ -22,38 +23,48 @@ export class HeaderBar extends React.Component {
   }
 
   handleHamburgerClick() {
-    this.setState(() => ({ hamburgerOpen: false, closeOpen: true}));
+    this.setState(() => ({ hamburgerOpen: false, closeOpen: true, navDisplay: true}));
   }
 
   handleCloseClick() {
-    this.setState(() => ({ closeOpen: false, hamburgerOpen: true }));
+    this.setState(() => ({ closeOpen: false, hamburgerOpen: true, navDisplay: false }));
   }
 
   render() {
-    // Only render the log out button if we are logged in
     let activeNav;
     if (this.props.loggedIn) {
       activeNav = (
         <div className="active-nav">
-          <NavLink to="/" activeClassName="is-active">Home</NavLink>
-          <NavLink to="/my-projects" activeClassName="is-active">My Projects</NavLink>
-          <NavLink to="/projectcreate" activeClassName="is-active">Create Project</NavLink>
-          <NavLink to="/projects" activeClassName="is-active">Project Templates</NavLink>
-          <NavLink to="/logout" activeClassName="is-active">Logout</NavLink>
+          <ul>
+            <li><NavLink to="/" activeClassName="is-active">Home</NavLink></li>
+            <li><NavLink to="/my-projects" activeClassName="is-active">My Projects</NavLink></li>
+            <li><NavLink to="/projectcreate" activeClassName="is-active">Create Project</NavLink></li>
+            <li><NavLink to="/projects" activeClassName="is-active">Project Templates</NavLink></li>
+            <li><NavLink to="/logout" activeClassName="is-active">Logout</NavLink></li>
+          </ul>
         </div>
       );
     }
 
     return (
       <header className="header-bar">
-        <i className="far fa-clock"></i>
-        <h1>Caprese Project Timer</h1>
-        {activeNav}
-        <div className="hamburger">
+        <div className="title-bar">
+          <i className="far fa-clock"></i>
+          <h1>Caprese Project Timer</h1>
+        </div>
+        <div className="nav">
+          {this.state.navDisplay ? <div className="active-container">
+            {activeNav}
+          </div>: ''}
+          
+          <div className="hamburger">
           {this.state.hamburgerOpen ?
             <i className="fas fa-bars" onClick={this.handleHamburgerClick}></i> :
             <i className="fas fa-times" onClick={this.handleCloseClick}></i>}
         </div>
+        </div>
+       
+        
       </header>
     );
   }

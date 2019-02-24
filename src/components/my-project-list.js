@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
 import MyProjectListItem from './my-project-list-item';
 import Timer2 from './timer2';
 import { updateProjectData} from '../actions/timer';
 import { deleteProject } from '../actions/projects';
 import './project-list.css';
 import { updateProject } from '../actions/projects';
-// import { fetchProjects } from '../actions/projects';
 
 export class  MyProjectList extends React.Component { 
   constructor(props){
@@ -16,7 +14,6 @@ export class  MyProjectList extends React.Component {
       userid: this.props.userid
     }
     this.onTimerClick = this.onTimerClick.bind(this);
-    // this.onEditClick = this.onEditClick.bind(this);
     this.onCompleteClick = this.onCompleteClick.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
   }
@@ -26,22 +23,15 @@ export class  MyProjectList extends React.Component {
     console.log(project);
   }
 
-  // onEditClick(id){
-  //   this.props.history.push(`/projects/${id}`);
-  // }
-
-  onCompleteClick(id){
+    onCompleteClick(id){
     const update = {
       id: id,
       isActive: false
     };
-    console.log('project completed');
     this.props.dispatch(updateProject(id, update));
   }
 
   onDeleteClick(id) {
-    console.log('delete clicked');
-    console.log(id);
     this.clearTimer();
     this.props.dispatch(deleteProject(id));
     this.props.history.push('/my-projects');
@@ -58,23 +48,20 @@ export class  MyProjectList extends React.Component {
   }
 
   render() {
-    // const altID = this.props.newProject.id;
    return (
       <div className='project-list'>
         <h2>My Projects and Work items:</h2>
         <div className='project-container'> 
         {
             this.props.projects.map((project, index) => (
-                <MyProjectListItem key={index}
-                    {...project}
-                    onTimerClick={this.onTimerClick}
-                    onDeleteClick={this.onDeleteClick}
-                    onCompleteClick={this.onCompleteClick}
-                    // onEditClick={this.onEditClick}
-                />))
+              <MyProjectListItem key={index}
+                {...project}
+                onTimerClick={this.onTimerClick}
+                onDeleteClick={this.onDeleteClick}
+                onCompleteClick={this.onCompleteClick}
+              />))
         }
         </div>
-        
         <Timer2 />
       </div>
     )

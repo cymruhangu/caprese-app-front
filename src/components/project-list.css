@@ -1,6 +1,5 @@
 html{
   background-color: #b4e0de;
-  /* background-image: none; */
 }
 
 .project-list h1 {
@@ -15,7 +14,6 @@ html{
   text-align: left;
   position: static;
   margin-left: 15px;
-  top: 14%;
 }
 
 .project-list h2 {
@@ -24,7 +22,8 @@ html{
 
 .project-container {
   height: 620px;
-  border: 1px solid white;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   overflow-y: scroll;
 }
 
@@ -33,4 +32,25 @@ html{
 }
 .project-info {
   margin-left: 10px;
+}
+
+@media only screen and (max-width: 1240px){
+  .project-container {
+    height: 1200px;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .project-container{
+    height: 650px;
+  }
+  .project-list h2 {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-height: 800px){
+  .project-container{
+    height: 500px;
+  }
 }

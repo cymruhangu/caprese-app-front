@@ -39,7 +39,6 @@
   padding: 0 2px;
 }
 
-
 .tooltip {
   position: relative;
   display: inline-block;
@@ -77,4 +76,15 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+@media only screen and (max-width: 1240px){
+
+}
+
+@media only screen and (max-width: 400px){
+  .list-item{
+    font-size: .7em;
+    padding: 2px;
+  }
 }

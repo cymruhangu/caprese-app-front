@@ -19,7 +19,6 @@ const BreakTimerModal = (props) => (
           <p><q className="q-right">Use both and overlook neither</q></p>
           <p>-Alan Cohen</p>
           <p>{ms(props.breakTime)}</p>
-          <button onClick={props.endBreak}>Close</button>
         </div>
         
     </Modal>

@@ -46,7 +46,6 @@ export class Timer2 extends React.Component {
     }
   }
 
-
   stopTimer() {
     console.log('stopTimer called');
     // console.log(this.state);
@@ -96,20 +95,18 @@ export class Timer2 extends React.Component {
     setTimeout(() => { clearInterval(this.breakTimer); this.endBreak(); }, this.props.timer.break);
   }
   render() {
-    //Disable buttons if no project 
-    let start = <button onClick={this.startTimer}>Start</button>
-    // let stop = <button onClick={this.pauseTimer}>Pause</button>
+  
     let CurrentProject = this.props.timer.projectId ? this.props.projects.find((project) => project.id === this.props.timer.projectId) : 'No project selected';
     console.log(CurrentProject);
-    //
     return (
       <div className='timer-box'>
         <h3>Current Project: {this.props.timer.projectName ? this.props.timer.projectName : 'No project selected'}</h3>
         <h3>budget: {this.props.timer.projectBudget ? ms(this.props.timer.projectBudget) : 0}</h3>
         <h3>remaining:{CurrentProject.id ? ms(CurrentProject.remaining) : 0}</h3>
         <h3>Work Timer: {ms(this.state.current)}</h3>
-        <h4>{CurrentProject._id}</h4>
-        {start}
+
+        {CurrentProject.id ? <button className="start-button" onClick={this.startTimer}>Start</button>: ''}
+      
         <BreakTimerModal
           breakOn={this.state.break}
           endBreak={this.endBreak}

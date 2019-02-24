@@ -1,0 +1,31 @@
+.create-project-form {
+  width: 40%;
+  margin: 0 auto;
+}
+
+input[type=text], textarea{
+  border-radius: 5px;
+  width: 80%;
+  display: block;
+  font-size: 1.3em;
+  height: 25px;
+  margin-bottom: 5px;
+  margin-left: 10%;
+}
+
+textarea{
+  height: 65px;
+}
+
+.project-submit {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: gray;
+  color: whitesmoke;
+}
+
+.project-submit:hover {
+  font-weight: bold;
+}

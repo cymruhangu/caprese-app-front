@@ -6,6 +6,7 @@
   left: 35%;
   top: 30%;
   border-radius: 8px;
+  padding-bottom: 10px;
 }
 
 html {
@@ -15,5 +16,32 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-    /* background-color: yellow; */
+}
+
+.login-form input[type=password]{
+  width: 200px;
+}
+
+.login-form button{
+  width: 100px;
+  height: 25px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: .9em;
+  background-color: gray;
+  color: white;
+}
+
+@media only screen and (max-width: 400px){
+  .home {
+    width: 70%;
+    height: 45%;
+    left: 16%;
+  }
+}
+
+@media only screen and (max-height: 600px){
+  .home{
+    height: 50%;
+  }
 }

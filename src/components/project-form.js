@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './project-form.css';
+
 class ProjectForm extends React.Component {
     constructor(props){
         super(props);
@@ -46,37 +48,34 @@ class ProjectForm extends React.Component {
 
     render(){
       // console.log(this.props.projects);
-        return (
-            <div>
-              <h3>Creating Project for </h3>
-                {this.state.error && <p>{this.state.error}</p>} 
-                <form onSubmit={this.onSubmit}>
-                    <input 
-                        type="text" 
-                        placeholder="project name" 
-                        autoFocus
-                        value={this.state.name} 
-                        onChange={this.onNameChange}
-                    />
-                    
-                    
-                    <input 
-                        type="text"
-                        placeholder="budget(hours)"
-                        value={this.state.budget}
-                        onChange={this.onBudgetChange}   
-                    />
-                   
-                    <textarea
-                        placeholder="project description" 
-                        value={this.state.description}
-                        onChange={this.onDescriptionChange} >
-                    </textarea>
-                    <button>Create Project</button>           
-                </form>
-            </div>
-        )
-    };
+      return (
+        <div className="create-project-form">
+          {this.state.error && <p>{this.state.error}</p>} 
+          <form onSubmit={this.onSubmit}>
+            <input 
+              type="text" 
+              placeholder="project name" 
+              autoFocus
+              value={this.state.name} 
+              onChange={this.onNameChange}
+            />
+            <input 
+              type="text"
+              placeholder="budget(hours)"
+              value={this.state.budget}
+              onChange={this.onBudgetChange}   
+            />
+              
+              <textarea
+                placeholder="project description" 
+                value={this.state.description}
+                onChange={this.onDescriptionChange} >
+              </textarea>
+              <button className="project-submit">Create Project</button>           
+          </form>
+        </div>
+      )
+  };
 } 
 
 const mapStateToProps = state => {

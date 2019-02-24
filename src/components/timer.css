@@ -14,3 +14,37 @@
   top: 13%;
   width: 35%;
 }
+
+.start-button {
+  width: 90px;
+  height: 30px;
+  border-radius: 8px;
+  background-color: darkgrey;
+  color: whitesmoke;
+  font-size: 1em;
+}
+
+.start-button:hover {
+  font-weight: bold;
+  background-color: rgb(78, 78, 78);
+}
+
+@media only screen and (max-width: 1240px){
+  .timer-box{
+    top: 8%;
+    right: 4%;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .timer-box{
+    font-size: .7em;
+    top: 13%;
+  }
+}
+
+@media only screen and (max-height: 800px){
+  .timer-box{
+    top: 15%;
+  }
+}

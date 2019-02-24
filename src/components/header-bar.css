@@ -6,16 +6,34 @@
   color: white;
   text-shadow: 2px 2px #141414;
 }
+.title-bar {
+  width: 40%;
+}
 
-.header-bar .is-active {
-  font-weight: bold;
-  color: red;
+.header-bar .nav {
+  /* border: 1px solid white; */
+  width: 35%;
+  position: absolute;
+  right: 30px;
+  top: 20px;
 }
 
 .header-bar a {
   text-decoration: none;
   padding-right: 20px;
   color: white;
+}
+
+.header-bar a:hover{
+  color: yellow;
+}
+
+.header-bar ul {
+  list-style-type: none;
+}
+
+.header-bar li {
+  display: inline;
 }
 
 .header-bar h1 {
@@ -33,8 +51,8 @@
 .header-bar .fas {
   font-size: 3em;
   position: absolute;
-  right: 30px;
-  top: 20px;
+  right: 15px;
+  top: 5px;
 }
 
 .active-nav {
@@ -42,8 +60,53 @@
   position: relative;
 }
 
+.hamburger {
+  display: none;
+}
+
 @media only screen and (max-width: 1240px){
   .active-nav {
-    display: none;
+    /* border: 1px solid yellow; */
+    position: absolute;
+    top: 60px;
+    right: 2px;
+    margin-right: 0;
+    background-color: gray;
+    z-index: 7;
+  }
+  .header-bar ul {
+    padding-left: 5px;
+  }
+  .header-bar li {
+    display: block;
+    text-align: left;
+  }
+  .hamburger {
+    display: block;
+  }
+  .title-bar {
+    width: 80%
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .title-bar {
+    text-align: left;
+    margin-right: 0;
+  }
+  .header-bar h1 {
+    display: inline;
+    font-size: 1.5em;
+    padding-left: 0;
+    padding-right: 5px;
+  }
+  
+  .header-bar .far {
+    font-size: 2em;
+    padding: 0;
+  }
+  .header-bar .fas {
+    font-size: 2.5em;
+    right: 0px;
   }
 }

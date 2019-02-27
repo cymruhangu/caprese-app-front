@@ -64,7 +64,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 1240px){
+@media only screen and (max-width: 1440px){
   .active-nav {
     /* border: 1px solid yellow; */
     position: absolute;

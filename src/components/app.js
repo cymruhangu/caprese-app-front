@@ -9,12 +9,9 @@ import ProjectList from './project-list';
 import MyProjectList from './my-project-list';
 import ProjectView from './project-view';
 import CreateProject from './create-project';
-import CreateTask from './create-task';
-import TaskList from './task-list';
 import Logout from './logout';
 import {refreshAuthToken} from '../actions/auth';
 import {fetchProjects} from '../actions/projects';
-import {fetchTasks} from '../actions/tasks';
 import './app.css';
 
 export class App extends React.Component {
@@ -30,7 +27,6 @@ export class App extends React.Component {
 
     componentWillMount(){
         this.props.dispatch(fetchProjects());
-        this.props.dispatch(fetchTasks());
     }
 
     componentWillUnmount() {
@@ -63,8 +59,6 @@ export class App extends React.Component {
                 <Route exact path="/my-projects" component={MyProjectList} />
                 <Route exact path="/projects/:id" component={ProjectView} />
                 <Route exact path="/projectcreate" component={CreateProject} />
-                <Route exact path="/taskcreate" component={CreateTask} />
-                <Route exact path="/tasks" component={TaskList} />
                 <Route exact path="/logout" component={Logout} />
             </div>
         );

@@ -21,7 +21,7 @@ html{
 }
 
 .project-container {
-  height: 620px;
+  height: 650px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   overflow-y: scroll;
@@ -36,7 +36,7 @@ html{
 
 @media only screen and (max-width: 1240px){
   .project-container {
-    height: 1200px;
+    height: 700px;
   }
 }
 

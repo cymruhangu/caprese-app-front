@@ -13,11 +13,9 @@ const ProjectListItem = (props) => {
       remaining: props.budget,
       owner: props.user.id
     };
-    console.log('clone clicked');
-    console.log(clone);
     props.dispatch(addProject(clone));
-
   }
+
   return (
     <div className="list-item">
       <p>{props.name}:  budget: {ms(props.budget)}

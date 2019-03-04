@@ -1,12 +1,16 @@
 {
-  "name": "client",
+  "name": "caprese-app-front",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "^2.1.3"
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "react-scripts": "^2.1.5",
+    "react-test-renderer": "^16.8.3"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "jest": "^23.6.0",
     "jwt-decode": "^2.2.0",
     "nodemon": "^1.18.9",
     "pretty-ms": "^4.0.0",
@@ -18,8 +22,8 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.7",
     "redux-form": "^7.3.0",
-    "redux-thunk": "^2.2.0",
-    "react-scripts": "^2.1.3"
+    "redux-mock-store": "^1.5.3",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

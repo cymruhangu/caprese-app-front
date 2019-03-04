@@ -30,6 +30,7 @@
 
 .header-bar ul {
   list-style-type: none;
+  display: inline-block;
 }
 
 .header-bar li {
@@ -61,6 +62,14 @@
 }
 
 .hamburger {
+  display: none;
+}
+
+.show-nav{
+  display: inline-block;
+}
+
+.hide-nav{
   display: none;
 }
 

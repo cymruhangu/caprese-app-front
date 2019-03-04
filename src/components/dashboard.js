@@ -16,7 +16,6 @@ export class Dashboard extends React.Component {
       completed: this.props.userProjects.filter(project => !project.isActive).length
     }
 
-    // this.onTimerClick = this.onTimerClick.bind(this);
   }
   componentWillMount() {
     this.props.dispatch(fetchProtectedData()); //What should be done here? Maybe all fetching?  

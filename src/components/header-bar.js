@@ -22,6 +22,17 @@ export class HeaderBar extends React.Component {
     clearAuthToken();
   }
 
+  //OnComponentDidMount
+  //fire a listener on the window.insideDim
+  //OnComponentDidUnmunt
+  //Remove listener
+
+// window.addEventListener('resize', yourCallBackFunction)
+
+// componentDidMount
+
+// componentWillUnMount() { window.removeEventListener('resize', callback
+
   handleHamburgerClick() {
     this.setState(() => ({ hamburgerOpen: false, closeOpen: true, navDisplay: true}));
   }
@@ -32,9 +43,12 @@ export class HeaderBar extends React.Component {
 
   render() {
     let activeNav;
+    console.log(window.innerWidth); 
+    console.log(this.props.user);
+    const hideVar = !this.state.hamburgerOpen ? "show-nav" : "hide-nav"; 
     if (this.props.loggedIn) {
       activeNav = (
-        <div className="active-nav">
+        <div className={`active-nav ${hideVar}`} >
           <ul>
             <li><NavLink to="/" activeClassName="is-active">Home</NavLink></li>
             <li><NavLink to="/my-projects" activeClassName="is-active">My Projects</NavLink></li>
@@ -71,7 +85,8 @@ export class HeaderBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  user: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(HeaderBar);

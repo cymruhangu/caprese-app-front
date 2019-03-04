@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 
-input[type=text], textarea{
+.create-project-form input[type=text], textarea{
   border-radius: 5px;
   width: 80%;
   display: block;

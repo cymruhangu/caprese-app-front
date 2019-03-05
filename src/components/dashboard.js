@@ -1,12 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-// import { fetchProtectedData } from '../actions/protected-data';
 import { fetchProjects } from '../actions/projects';
 import TimerIntervals from './timer-intervals';
-// import { MyProjectList } from './my-project-list';
-// import {fetchProjects} from '../actions/projects';
-// import ProjectList from './project-list';
 import './dashboard.css';
 
 export class Dashboard extends React.Component {

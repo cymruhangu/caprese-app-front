@@ -8,14 +8,11 @@ const CreateProject = (props) => (
         <h2>Create a New Project</h2>
         <ProjectForm  
             onSubmit={(project) => {
-              // console.log(project);
-                props.dispatch(addProject(project));
-                props.history.push('/my-projects');
+              props.dispatch(addProject(project));
+              props.history.push('/my-projects');
             }}
         />
     </div>
-
 );
-
 
 export default connect()(CreateProject);

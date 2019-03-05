@@ -27,9 +27,8 @@ export class  ProjectList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        // projects: state.projects,
-        projects: state.projects.filter(project => project.owner._id  !== state.auth.currentUser.id),
-        user: state.auth.currentUser
+      projects: state.projects.filter(project => project.owner._id  !== state.auth.currentUser.id),
+      user: state.auth.currentUser
     }
 };
 

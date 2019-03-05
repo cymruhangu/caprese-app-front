@@ -59,8 +59,6 @@ export class TimerIntervals extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.timer.work);
-  console.log(state.timer.break);
   return {
     work: state.timer.work,
     break: state.timer.break

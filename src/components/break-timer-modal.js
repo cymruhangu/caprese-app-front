@@ -24,12 +24,4 @@ const BreakTimerModal = (props) => (
     </Modal>
 );
 
-//get break timer from store and start timer.
-//the break timer doesn't need to dispatch any actions. Yay
-
-
-
-
 export default BreakTimerModal;
-// this.breakTimer = setInterval(() => this.setState({breaktime: this.state.breaktime - 1000}), 1000);
-//     setTimeout(() => { clearInterval(this.breakTimer); this.setState({break: false, breaktime: this.props.break, current: this.props.work, timeRemains: true}); }, 10000);

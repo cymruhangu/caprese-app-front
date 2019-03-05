@@ -22,15 +22,12 @@ export const fetchProjects = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then((data) => {
-    // console.log(data);
     dispatch(fetchProjectsSuccess(data))
   })
   .catch(err => {
     console.log(err);
-      // dispatch(fetchProtectedDataError(err));
   });
 };
-
 
 //FETCH ONE PROJECT
 export const FETCH_ONE_PROJECT_SUCCESS = 'FETCH_PROJECT_SUCCESS';
@@ -45,7 +42,6 @@ export const fetchOneProject = (id) => dispatch => {
       }
       return res.json();
   }).then(project => {
-    // console.log(projects);
     dispatch(fetchOneProjectsSuccess(project));
   });
 };
@@ -59,12 +55,9 @@ export const addProjectSuccess = project => ({
 //POST Project
 export const ADD_PROJECT = 'ADD_PROJECT';
 export const addProject = project => dispatch => {
-  // const authToken = getState().auth.authToken;
-  // console.log(project);
   return fetch(`${API_BASE_URL}/projects`, {
     method: 'POST',
     headers: {
-      // Authorization: `Bearer ${authToken}`
       'content-type': 'application/json'
     },
     body: JSON.stringify(project)
@@ -72,7 +65,6 @@ export const addProject = project => dispatch => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(newProject => {
-    console.log(newProject);
     dispatch(addProjectSuccess(newProject));
     dispatch(fetchOneProject(newProject.id));
   })
@@ -100,8 +92,6 @@ export const updateProjectSuccess = (id, updates) => ({
 //UPDATE PROJECT
 export const UPDATE_PROJECT = 'UPDATE_PROJECT'
 export const updateProject = (id, updates) => dispatch => {
-  console.log(id);
-  console.log(updates);
   return fetch(`${API_BASE_URL}/projects/${id}`, {
     method: 'PUT',
     headers: {
@@ -140,19 +130,15 @@ export const deleteProject = (id) => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/projects/${id}`, {
     method: 'DELETE',
     headers: {
-      // 'content-type': 'application/json'
       Authorization: `Bearer ${authToken}`
     }
   })
-    // .then(res => normalizeResponseErrors(res))
-    // .then(res => res.json())
     .then(
       dispatch(deleteProjectSuccess(id))
     )
     .catch(err => {
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {
-        // Convert ValidationErrors into SubmissionErrors for Redux Form
         return Promise.reject(
           new SubmissionError({
             [location]: message

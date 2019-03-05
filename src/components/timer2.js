@@ -97,7 +97,6 @@ export class Timer2 extends React.Component {
   render() {
   
     let CurrentProject = this.props.timer.projectId ? this.props.projects.find((project) => project.id === this.props.timer.projectId) : 'No project selected';
-    console.log(CurrentProject);
     return (
       <div className='timer-box'>
         <h3>Current Project: {this.props.timer.projectName ? this.props.timer.projectName : 'No project selected'}</h3>

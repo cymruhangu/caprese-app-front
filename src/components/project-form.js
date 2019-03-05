@@ -42,12 +42,10 @@ class ProjectForm extends React.Component {
                 tasks:[],
                 isActive: true
             });
-            console.log(this.props.user);
         }
     };
 
     render(){
-      // console.log(this.props.projects);
       return (
         <div className="create-project-form">
           {this.state.error && <p>{this.state.error}</p>} 
@@ -79,7 +77,6 @@ class ProjectForm extends React.Component {
 } 
 
 const mapStateToProps = state => {
-  // console.log(state.auth.currentUser);
    return {
     projects: state.projects,
     user: state.auth.currentUser.id

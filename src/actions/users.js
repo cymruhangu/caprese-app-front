@@ -32,8 +32,6 @@ export const registerUser = user => dispatch => {
 //UPDATE USER
 export const UPDATE_USER = 'UPDATE_USER'
 export const updateProject = (id, updates) => dispatch => {
-  console.log(id);
-  console.log(updates);
   return fetch(`${API_BASE_URL}/users/${id}`, {
     method: 'PUT',
     headers: {

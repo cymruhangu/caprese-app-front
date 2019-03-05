@@ -29,30 +29,25 @@ export class Timer extends React.Component {
   }
 
   startTimer() {
-    console.log('start timer clicked');
-    console.log(this.state);
     if (!this.state.isOn && this.state.timeRemains && this.state.project.remaining > this.state.current) {
       this.setState({
         isOn: true,
         workTime: this.props.work,
-        start: this.props.work //Should these be both from this.state?
+        start: this.props.work 
       });
       this.timer = setInterval(() => this.setState({
         current: this.state.current - 1000,
         projectRemaining: this.state.project.remaining - 1000
       }), 1000);
-      // this.props.dispatch(updateProjectId(this.state.id));
       setTimeout( this.stopTimer, this.state.workTime);
     }
   }
   
   pauseTimer() {
-    console.log('pauseTimer called');
     if (this.state.isOn) {
       this.setState({isOn: false});
       this.props.dispatch(updateTime(this.state.current));
       const newRemaining = this.props.project.remaining - this.state.current;
-      console.log(newRemaining);
       this.props.dispatch(updateProject(this.state.project._id, {id: this.state.project._id, remaining: newRemaining}));
       clearInterval(this.timer)
     }
@@ -60,7 +55,6 @@ export class Timer extends React.Component {
 
   stopTimer() {
     console.log('stopTimer called');
-    // console.log(this.state);
     if (this.state.isOn) {
       this.setState({isOn: false});
       this.props.dispatch(updateTime(this.state.current));
@@ -110,7 +104,6 @@ export class Timer extends React.Component {
   render() {
     let start = <button onClick={this.startTimer}>Start</button>
     let stop = <button onClick={this.pauseTimer}>Pause</button>
-    // let resume = <button onClick={this.startTimer}>resume</button>
   
     return(
       <div className='timer-box'>
@@ -118,7 +111,6 @@ export class Timer extends React.Component {
         <h3>budget: {ms(this.state.project.budget)}</h3>
         <h3>remaining:{ms(this.props.project.remaining)}</h3>
         <h3>Work Timer: {ms(this.state.current)}</h3>
-        
         
         {start}
         {stop}
@@ -139,7 +131,6 @@ export class Timer extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-  // console.log(state.projects);
   return {
     remaining: state.timer.remaining,
     work: state.timer.work,

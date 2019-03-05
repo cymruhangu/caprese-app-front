@@ -23,37 +23,30 @@ export class Timer2 extends React.Component {
     }
     this.startTimer = this.startTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this);
-    // this.pauseTimer = this.pauseTimer.bind(this); 
-    //  console.log(props.project);
+  
   }
 
   startTimer() {
     console.log('start timer clicked');
-    console.log(this.state);
     if (!this.state.isOn && this.state.timeRemains && this.props.timer.projectRemaining > this.state.current) {
       this.setState({
         isOn: true,
         workTime: this.props.work,
-        start: this.props.work //Should these be both from this.state?
+        start: this.props.work 
       });
-      console.log(this.state);
       this.timer = setInterval(() => this.setState({
         current: this.state.current - 1000,
         projectRemaining: this.state.projectRemaining - 1000
       }), 1000);
-      // this.props.dispatch(updateProjectId(this.state.id));
       setTimeout(this.stopTimer, this.props.timer.work);
     }
   }
 
   stopTimer() {
     console.log('stopTimer called');
-    // console.log(this.state);
     if (this.state.isOn) {
       this.setState({ isOn: false });
       const newRemaining = this.props.timer.projectRemaining - this.props.work;
-      console.log(this.state.projectRemaining);
-      console.log(newRemaining);
       this.props.dispatch(updateProjectData({ remaining: this.state.current, projectRemaining: newRemaining }));
       this.props.dispatch(updateProject(this.props.timer.projectId, { id: this.props.timer.projectId, remaining: newRemaining }));
       clearInterval(this.timer)

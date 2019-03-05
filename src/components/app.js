@@ -11,7 +11,7 @@ import ProjectView from './project-view';
 import CreateProject from './create-project';
 import Logout from './logout';
 import {refreshAuthToken} from '../actions/auth';
-import {fetchProjects} from '../actions/projects';
+// import {fetchProjects} from '../actions/projects';
 import './app.css';
 
 export class App extends React.Component {
@@ -25,9 +25,9 @@ export class App extends React.Component {
         }
     }
 
-    componentWillMount(){
-        this.props.dispatch(fetchProjects());
-    }
+    // componentWillMount(){
+    //     this.props.dispatch(fetchProjects());
+    // }
 
     componentWillUnmount() {
         this.stopPeriodicRefresh();

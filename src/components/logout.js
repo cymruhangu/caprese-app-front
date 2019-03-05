@@ -9,6 +9,7 @@ class Logout extends React.Component {
   componentDidMount(){
     this.props.dispatch(clearAuth());
     clearAuthToken();
+    //clear store on logout
   }
 
   render(){

@@ -10,17 +10,27 @@ export const fetchProjectsSuccess = projects => ({
   type: FETCH_PROJECTS_SUCCESS,
   projects,
 });
-export const fetchProjects = () => dispatch => {
-  fetch(`${API_BASE_URL}/projects`).then(res => {
-      if (!res.ok) {
-          return Promise.reject(res.statusText);
-      }
-      return res.json();
-  }).then(data => {
-    console.log(data);
-    dispatch(fetchProjectsSuccess(data));
+
+export const fetchProjects = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/projects`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+})
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then((data) => {
+    // console.log(data);
+    dispatch(fetchProjectsSuccess(data))
+  })
+  .catch(err => {
+    console.log(err);
+      // dispatch(fetchProtectedDataError(err));
   });
 };
+
 
 //FETCH ONE PROJECT
 export const FETCH_ONE_PROJECT_SUCCESS = 'FETCH_PROJECT_SUCCESS';
@@ -49,11 +59,13 @@ export const addProjectSuccess = project => ({
 //POST Project
 export const ADD_PROJECT = 'ADD_PROJECT';
 export const addProject = project => dispatch => {
+  // const authToken = getState().auth.authToken;
   // console.log(project);
   return fetch(`${API_BASE_URL}/projects`, {
     method: 'POST',
     headers: {
-        'content-type': 'application/json'
+      // Authorization: `Bearer ${authToken}`
+      'content-type': 'application/json'
     },
     body: JSON.stringify(project)
   })
@@ -123,11 +135,13 @@ export const deleteProjectSuccess = (id) => ({
 });
 
 export const DELETE_PROJECT = 'DELETE_PROJECT'
-export const deleteProject = (id) => dispatch => {
+export const deleteProject = (id) => (dispatch, getState) => {
+   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/projects/${id}`, {
     method: 'DELETE',
     headers: {
-        'content-type': 'application/json'
+      // 'content-type': 'application/json'
+      Authorization: `Bearer ${authToken}`
     }
   })
     // .then(res => normalizeResponseErrors(res))

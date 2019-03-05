@@ -8,7 +8,12 @@ import './dashboard.css';
 export class Dashboard extends React.Component {
   
   componentWillMount() {
-    this.props.dispatch(fetchProjects()); 
+    if(this.props.projects.length === 0 ){
+      this.props.dispatch(fetchProjects()); 
+    }else{
+      console.log('already got projects from DB');
+    }
+    
   }
 
   render() {

@@ -20,7 +20,6 @@ export class  MyProjectList extends React.Component {
 
   onTimerClick(project){
     this.props.dispatch(updateProjectData(project));
-    console.log(project);
   }
 
     onCompleteClick(id){
@@ -67,7 +66,6 @@ export class  MyProjectList extends React.Component {
     )
   }
 }
-  
 
 const mapStateToProps = (state, props) => {
     return {

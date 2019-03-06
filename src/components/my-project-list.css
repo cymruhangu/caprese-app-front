@@ -1,0 +1,78 @@
+html{
+  background-color: #b4e0de;
+}
+
+.my-project-list h1 {
+  padding-left: 15px;
+}
+
+.my-project-list {
+  background-color: lightgrey;
+  border-radius: 10px;
+  left: 10px;
+  width: 30%;
+  text-align: left;
+  position: static;
+  margin-left: 20%;
+  padding-bottom: 10px;
+}
+
+.my-project-list h2 {
+  margin: 7px 5px;
+}
+
+.my-project-container {
+  height: 675px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow-y: scroll;
+  
+}
+
+.my-project-name {
+  margin-bottom: 5px;;
+}
+.my-project-info {
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 1240px){
+  .my-project-list{
+    width: 40%;
+    margin-left: 10%;
+  }
+  .my-project-container {
+    height: 1000px;
+  }
+}
+
+@media only screen and (max-width: 769px){
+  .my-project-list{
+    width: 48%;
+    margin-left: 3%;
+  }
+  .my-project-container {
+    height: 825px;
+  }
+}
+
+@media only screen and (max-width: 414px){
+  .my-project-container{
+    height: 590px;
+  }
+  .my-project-list h2 {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 375px){
+  .my-project-container{
+    height: 520px;
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .my-project-container{
+    height: 420px;
+  }
+}

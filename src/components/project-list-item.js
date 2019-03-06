@@ -18,11 +18,11 @@ const ProjectListItem = (props) => {
 
   return (
     <div className="list-item">
-      <p>{props.name}:  budget: {ms(props.budget)}
+      <p>{props.name}:{'   '} {ms(props.budget)}
         {'   '}
       </p>
       <div className="tooltip">
-        <button onClick={onCloneClick}>{'   '}Clone</button>
+        <button className="clone" onClick={onCloneClick}>{'   '}Clone</button>
         <span className="tooltiptext">Clone this project!</span>
       </div>
     </div>

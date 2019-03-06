@@ -3,23 +3,30 @@
 }
 
 .timer-box {
-  background-color:#8fd0e0;
+  background-color:#48b4cf;
   border: 1px solid black;
   border-radius: 10px;
   margin: 0 auto;
   padding: 5px;
   position: absolute;
-  right: 10%;
+  right: 20%;
   text-align: center;
   top: 13%;
-  width: 35%;
+  width: 25%;
+  height: 30%;
 }
 
+.timed-project {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px #141414;
+}
 .start-button {
   width: 90px;
   height: 30px;
   border-radius: 8px;
-  background-color: darkgrey;
+  background-color: rgb(102, 101, 101);
   color: whitesmoke;
   font-size: 1em;
 }
@@ -29,14 +36,40 @@
   background-color: rgb(78, 78, 78);
 }
 
-@media only screen and (max-width: 1240px){
+@media only screen and (max-width: 1861px){
   .timer-box{
-    top: 8%;
-    right: 4%;
+    top: 15%;
+    right: 10%;
+    width:35%;
   }
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 1600px){
+  .timer-box{
+    top: 30%;
+    right: 10%;
+    width:35%;
+  }
+}
+
+@media only screen and (max-width: 1240px){
+  .timer-box{
+    top: 8%;
+    right: 10%;
+    width:35%;
+  }
+}
+
+@media only screen and (max-width: 769px){
+  .timer-box{
+    top: 15%;
+    right: 3%;
+    width: 40%;
+    
+  }
+}
+
+@media only screen and (max-width: 414px){
   .timer-box{
     font-size: .7em;
     top: 13%;
@@ -46,5 +79,15 @@
 @media only screen and (max-height: 800px){
   .timer-box{
     top: 15%;
+  }
+}
+@media only screen and (max-height: 668px){
+  .timer-box{
+    top: 17%;
+  }
+}
+@media only screen and (max-width: 320px){
+  .timer-box {
+    height: 40%;
   }
 }

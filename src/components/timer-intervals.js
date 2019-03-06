@@ -34,9 +34,10 @@ export class TimerIntervals extends React.Component {
   render() {
     return (
       <div className="time-select">
-        <h3>Select Your Pomodoro and Break Lengths:</h3>
+      <hr></hr>
+        <h3>First Select Your Pomodoro and Break Lengths:</h3>
         <form>
-          <label>Pomodoro length: </label>{'  '}
+          <label>Pomodoro: </label>{'  '}
           <select id="pom-select" onChange={this.handlePomChange}>
             <option value="demo" defaultValue>Demo - 30 sec</option>
             <option value="25">25 min</option>
@@ -44,7 +45,7 @@ export class TimerIntervals extends React.Component {
             <option value="75">75 min</option>
             <option value="100">100 min</option>
           </select>{'     '}
-          <label>Break length: </label>{'  '}
+          <label>Break: </label>{'  '}
           <select id="break-select" onChange={this.handleBreakChange}>
             <option value="demo" defaultValue>Demo - 10 sec</option>
             <option value="5">5</option>

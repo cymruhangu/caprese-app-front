@@ -29,3 +29,9 @@ textarea{
 .project-submit:hover {
   font-weight: bold;
 }
+
+@media only screen and (max-width: 1024px){
+  .create-project-form {
+    width: 85%;
+  }
+}

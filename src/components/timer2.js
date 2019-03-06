@@ -92,7 +92,8 @@ export class Timer2 extends React.Component {
     let CurrentProject = this.props.timer.projectId ? this.props.projects.find((project) => project.id === this.props.timer.projectId) : 'No project selected';
     return (
       <div className='timer-box'>
-        <h3>Current Project: {this.props.timer.projectName ? this.props.timer.projectName : 'No project selected'}</h3>
+        <h3>You are working on:</h3>
+        <span className="timed-project">{this.props.timer.projectName ? this.props.timer.projectName : 'No project selected'}</span>
         <h3>budget: {this.props.timer.projectBudget ? ms(this.props.timer.projectBudget) : 0}</h3>
         <h3>remaining:{CurrentProject.id ? ms(CurrentProject.remaining) : 0}</h3>
         <h3>Work Timer: {ms(this.state.current)}</h3>

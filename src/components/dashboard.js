@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import requiresLogin from './requires-login';
 import { fetchProjects } from '../actions/projects';
 import TimerIntervals from './timer-intervals';
@@ -23,11 +24,17 @@ export class Dashboard extends React.Component {
         <div className="dashboard-name">{this.props.name}</div>
         <div className="dashboard-username">Username: {this.props.username}</div>
         <div className="user-stats">
-          <h3>Your Projects:</h3>
+          <h4>Your Projects:</h4>
           <p> Active:  {this.props.active.length}</p>
           <p> Completed: {this.props.completed.length}</p>
         </div>
         <TimerIntervals />
+        <hr></hr>
+        <div className="options">
+          <h4>You can then select a project to work on from <Link to="/projects" >My Projects</Link></h4>
+          <h4>A new project can be created from a <Link to="/projects" >Project Templates</Link></h4>
+          <h4>Or create custom project from the <Link to="/projectcreate" >Create Project</Link></h4>
+        </div>
       </div>
     );
   }

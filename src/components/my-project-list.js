@@ -4,7 +4,7 @@ import MyProjectListItem from './my-project-list-item';
 import Timer2 from './timer2';
 import { updateProjectData} from '../actions/timer';
 import { deleteProject } from '../actions/projects';
-import './project-list.css';
+import './my-project-list.css';
 import { updateProject } from '../actions/projects';
 
 export class  MyProjectList extends React.Component { 
@@ -48,9 +48,9 @@ export class  MyProjectList extends React.Component {
 
   render() {
    return (
-      <div className='project-list'>
-        <h2>My Projects and Work items:</h2>
-        <div className='project-container'> 
+      <div className='my-project-list'>
+        <h2>My Projects:</h2>
+        <div className='my-project-container'> 
         {
             this.props.projects.map((project, index) => (
               <MyProjectListItem key={index}

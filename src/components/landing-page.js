@@ -12,8 +12,12 @@ export function LandingPage(props) {
 
     return (
       <div className="splash">
+        <div className="introduction">
+          <h1>A Project Timer and a Pomodoro Timer </h1>
+        </div>
+      
         <div className="home">
-          <h2>Welcome to the Caprese App</h2>
+          <h4>Sign in or Register</h4>
           <LoginForm />
           <Link to="/register">Register</Link>
         </div>

@@ -1,19 +1,20 @@
-html{
+/* html{
   background-color: #b4e0de;
-}
+} */
 
-.project-list h1 {
-  padding-left: 15px;
+.project-list h2 {
+  text-align: center;
 }
 
 .project-list {
   background-color: lightgrey;
   border-radius: 10px;
   left: 10px;
-  width: 50%;
+  width: 30%;
   text-align: left;
   position: static;
-  margin-left: 15px;
+  margin-left: 35%;
+  padding-bottom: 10px;
 }
 
 .project-list h2 {
@@ -21,10 +22,11 @@ html{
 }
 
 .project-container {
-  height: 650px;
+  height: 700px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   overflow-y: scroll;
+  
 }
 
 .project-name {
@@ -35,10 +37,25 @@ html{
 }
 
 @media only screen and (max-width: 1240px){
+  .project-list {
+    width: 45%;
+    margin-left: 30%;
+  }
   .project-container {
-    height: 700px;
+    max-height: 1200px;
   }
 }
+
+@media only screen and (max-width: 768px){
+  .project-list {
+    width: 45%;
+    margin-left: 30%;
+  }
+  .project-container {
+    max-height: 1200px;
+  }
+}
+
 
 @media only screen and (max-width: 400px){
   .project-container{

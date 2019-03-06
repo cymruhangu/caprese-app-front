@@ -1,5 +1,5 @@
 .header-bar {
-  background-color: gray;
+  background-color: rgb(56, 56, 56);
   height: 80px;
   padding-right: 0;
   padding-top: 15px;
@@ -98,7 +98,7 @@
   }
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 414px){
   .title-bar {
     text-align: left;
     margin-right: 0;
@@ -112,7 +112,7 @@
   
   .header-bar .far {
     font-size: 2em;
-    padding: 0;
+    padding: 2px;
   }
   .header-bar .fas {
     font-size: 2.5em;

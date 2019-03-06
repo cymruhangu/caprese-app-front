@@ -32,6 +32,11 @@
   font-weight: 600;
 }
 
+.clone {
+  background-color: rgb(104, 103, 103);
+  color: white;
+  border-radius: 3px;
+}
 .label {
   font-style: italic;
   font-weight: 500;
@@ -42,12 +47,11 @@
 .tooltip {
   position: relative;
   display: inline-block;
-  /* border-bottom: 1px dotted black; */
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 100px;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -60,6 +64,7 @@
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  font-size: .75em;
 }
 
 .tooltip .tooltiptext::after {
@@ -79,10 +84,13 @@
 }
 
 @media only screen and (max-width: 1240px){
-
+  .list-item{
+    font-size: 1em;
+    padding: 2px;
+  }
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 414px){
   .list-item{
     font-size: .7em;
     padding: 2px;

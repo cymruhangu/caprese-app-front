@@ -7,8 +7,8 @@ const initialState = {
   projectRemaining: '',
   budget: 30000,
   remaining: 30000,
-  work: 30000,
-  break: 10000
+  work: 10000,
+  break: 5000
 };
 
 

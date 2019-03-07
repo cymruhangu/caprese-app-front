@@ -48,7 +48,7 @@ export class  MyProjectList extends React.Component {
 
   render() {
    return (
-      <div className='my-project-list'>
+      <section className='my-project-list'>
         <h2>My Projects:</h2>
         <div className='my-project-container'> 
         {
@@ -62,7 +62,7 @@ export class  MyProjectList extends React.Component {
         }
         </div>
         <Timer2 />
-      </div>
+      </section>
     )
   }
 }

@@ -13,7 +13,7 @@ export class TimerIntervals extends React.Component {
   handlePomChange(e) {
     let value;
     if (e.target.value === 'demo') {
-      value = 30000;
+      value = 10000;
     } else {
       value = e.target.value * 60000;
     }
@@ -24,7 +24,7 @@ export class TimerIntervals extends React.Component {
   handleBreakChange(e) {
     let value;
     if (e.target.value === 'demo') {
-      value = 10000;
+      value = 5000;
     } else {
       value = e.target.value * 60000;
     }
@@ -39,7 +39,7 @@ export class TimerIntervals extends React.Component {
         <form>
           <label>Pomodoro: </label>{'  '}
           <select id="pom-select" onChange={this.handlePomChange}>
-            <option value="demo" defaultValue>Demo - 30 sec</option>
+            <option value="demo" defaultValue>Demo - 10 sec</option>
             <option value="25">25 min</option>
             <option value="50">50 min</option>
             <option value="75">75 min</option>
@@ -47,7 +47,7 @@ export class TimerIntervals extends React.Component {
           </select>{'     '}
           <label>Break: </label>{'  '}
           <select id="break-select" onChange={this.handleBreakChange}>
-            <option value="demo" defaultValue>Demo - 10 sec</option>
+            <option value="demo" defaultValue>Demo - 5 sec</option>
             <option value="5">5</option>
             <option value="10">10 min</option>
             <option value="15">15 min</option>

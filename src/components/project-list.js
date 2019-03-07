@@ -5,21 +5,19 @@ import './project-list.css';
 
 export class  ProjectList extends React.Component { 
   render() {
-    console.log(this.props.projects);
     return (
-      <div className="project-list">
+      <section className="project-list">
         <h2>Project Templates</h2>
         <div className="project-container">
         {
             this.props.projects.map((project, index) => (
-                <ProjectListItem key={index}
-                    {...project}
-                    user={this.props.user}
-                />))
+              <ProjectListItem key={index}
+                {...project}
+                user={this.props.user}
+              />))
         }
         </div>
-        
-      </div>
+      </section>
     )
   }
 }

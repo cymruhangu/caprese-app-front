@@ -48,25 +48,25 @@ export class HeaderBar extends React.Component {
     }
 
     return (
-      <header className="header-bar">
-        <div className="title-bar">
-          <i className="far fa-clock"></i>
-          <h1>Caprese Project Timer</h1>
+      <nav role="navigation">
+        <div className="header-bar">
+          <header className="title-bar" role="banner">
+            <i className="far fa-clock"></i>
+            <h1>Caprese Project Timer</h1>
+          </header>
+          <div className="nav">
+            {this.state.navDisplay ? <div className="active-container">
+              {activeNav}
+            </div>: ''}
+            
+            <div className="hamburger">
+            {this.state.hamburgerOpen ?
+              <i className="fas fa-bars" onClick={this.handleHamburgerClick}></i> :
+              <i className="fas fa-times" onClick={this.handleCloseClick}></i>}
+          </div>
+          </div>
         </div>
-        <div className="nav">
-          {this.state.navDisplay ? <div className="active-container">
-            {activeNav}
-          </div>: ''}
-          
-          <div className="hamburger">
-          {this.state.hamburgerOpen ?
-            <i className="fas fa-bars" onClick={this.handleHamburgerClick}></i> :
-            <i className="fas fa-times" onClick={this.handleCloseClick}></i>}
-        </div>
-        </div>
-       
-        
-      </header>
+      </nav>
     );
   }
 }

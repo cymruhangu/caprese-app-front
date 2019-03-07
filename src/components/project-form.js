@@ -47,7 +47,7 @@ class ProjectForm extends React.Component {
 
     render(){
       return (
-        <div className="create-project-form">
+        <section className="create-project-form">
           {this.state.error && <p>{this.state.error}</p>} 
           <form onSubmit={this.onSubmit}>
             <input 
@@ -71,7 +71,7 @@ class ProjectForm extends React.Component {
               </textarea>
               <button className="project-submit">Create Project</button>           
           </form>
-        </div>
+        </section>
       )
   };
 } 

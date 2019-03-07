@@ -19,7 +19,7 @@ export class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="dashboard">
+      <section className="dashboard">
         <h3>Logged in as: </h3>
         <div className="dashboard-name">{this.props.name}</div>
         <div className="dashboard-username">Username: {this.props.username}</div>
@@ -35,7 +35,7 @@ export class Dashboard extends React.Component {
           <h4>A new project can be created from a <Link to="/projects" >Project Templates</Link></h4>
           <h4>Or create custom project from the <Link to="/projectcreate" >Create Project</Link></h4>
         </div>
-      </div>
+      </section>
     );
   }
 }

@@ -2,6 +2,9 @@
   position: absolute;
   left: 32%;
   top: 25%;
+  font-size: 1.5em;
+  color:whitesmoke;
+  text-shadow: 2px 2px #141414;
 }
 
 .home {

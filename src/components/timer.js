@@ -106,12 +106,11 @@ export class Timer extends React.Component {
     let stop = <button onClick={this.pauseTimer}>Pause</button>
   
     return(
-      <div className='timer-box'>
+      <section className='timer-box'>
         <h3>Current Project: {this.state.project.name}</h3>
         <h3>budget: {ms(this.state.project.budget)}</h3>
         <h3>remaining:{ms(this.props.project.remaining)}</h3>
         <h3>Work Timer: {ms(this.state.current)}</h3>
-        
         {start}
         {stop}
         <BreakTimerModal 
@@ -120,12 +119,9 @@ export class Timer extends React.Component {
           breakTime={this.state.breaktime}
         />
         <div>
-  
           <button onClick={this.startBreak}>Open Modal</button>
-
         </div>
-
-      </div>
+      </section>
     )
   }
 }

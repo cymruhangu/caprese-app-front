@@ -38,6 +38,8 @@ The project templates page provides a list of projects that are available to clo
 section of Thinkful Frontend Fundamentals. So as an example, a new student could create an account, login, and clone each of the projects (sections) and keep track of how much time they are spending while using a pomodoro timer.
 ![screenshot of the dashboard](Caprese-project-templates.png)
 
+Backend repo: https://github.com/cymruhangu/caprese-app-back
+
 Possible Future Enhancements
 ----------------------------
 - The addition of tasks or sub-project under a project in which the time budgets from each task would roll up to the parent project. 

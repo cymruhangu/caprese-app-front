@@ -37,7 +37,7 @@ export class HeaderBar extends React.Component {
       activeNav = (
         <div className={`active-nav ${hideVar}`} >
           <ul>
-            <li><NavLink to="/" activeClassName="is-active">Home</NavLink></li>
+            <li><NavLink to="/dashboard" activeClassName="is-active">Home</NavLink></li>
             <li><NavLink to="/my-projects" activeClassName="is-active">My Projects</NavLink></li>
             <li><NavLink to="/projectcreate" activeClassName="is-active">Create Project</NavLink></li>
             <li><NavLink to="/projects" activeClassName="is-active">Project Templates</NavLink></li>

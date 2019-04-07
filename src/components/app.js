@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import HeaderBar from './header-bar';
+import RealSplash from './RealSplash';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
@@ -47,7 +48,8 @@ export class App extends React.Component {
         return (
             <div className="app">
                 <HeaderBar />
-                <Route exact path="/" component={LandingPage} />
+                <Route exact path="/" component={RealSplash} />
+                <Route exact path="/login" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/projects" component={ProjectList} />

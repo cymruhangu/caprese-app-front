@@ -12,9 +12,6 @@ export function LandingPage(props) {
 
     return (
       <section className="splash">
-        <div className="introduction">
-          <h1>A Project Timer and a Pomodoro Timer </h1>
-        </div>
         <div className="home">
           <h4>Sign in or Register</h4>
           <LoginForm />

@@ -44,6 +44,9 @@
   text-shadow: 2px 1px #141414;
 }
 
+.options-link{
+  color: white;
+}
 a:link {
   text-decoration: none;
 }

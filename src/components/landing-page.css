@@ -13,7 +13,7 @@
   width: 30%;
   position: absolute;
   left: 35%;
-  top: 43%;
+  top: 35%;
   border-radius: 8px;
   padding-bottom: 10px;
 }
@@ -43,16 +43,17 @@ html {
   color: white;
 }
 
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 420px){
+  .introduction{
+    left: 8%;
+  }
+  .introduction h1{
+    margin: 0 auto;
+  }
   .home {
     width: 70%;
-    height: 45%;
-    left: 16%;
-  }
-}
-
-@media only screen and (max-height: 600px){
-  .home{
-    height: 50%;
+    height: 40%;
+    top:30%;
+    left: 15%;
   }
 }

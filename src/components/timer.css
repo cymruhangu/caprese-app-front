@@ -52,11 +52,12 @@
   }
 }
 
-@media only screen and (max-width: 1240px){
+@media only screen and (max-width: 1280px){
   .timer-box{
     top: 8%;
     right: 10%;
     width:35%;
+    height: 35%;
   }
 }
 

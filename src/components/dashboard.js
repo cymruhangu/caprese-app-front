@@ -31,9 +31,9 @@ export class Dashboard extends React.Component {
         <TimerIntervals />
         <hr></hr>
         <div className="options">
-          <h4>You can then select a project to work on from <Link to="/projects" >My Projects</Link></h4>
-          <h4>A new project can be created from a <Link to="/projects" >Project Templates</Link></h4>
-          <h4>Or create custom project from the <Link to="/projectcreate" >Create Project</Link></h4>
+          <h4>You can then select a project to work on from <Link to="/projects" ><span className="options-link">My Projects</span></Link></h4>
+          <h4>A new project can be created from a <Link to="/projects" ><span className="options-link">Project Templates</span></Link></h4>
+          <h4>Or create custom project from the <Link to="/projectcreate" ><span className="options-link">Create Project</span></Link></h4>
         </div>
       </section>
     );

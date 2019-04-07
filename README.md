@@ -16,6 +16,10 @@ You can login with this user account to test:<br/>
 username: <em>jstudent</em><br/>
 password: <em>1qazxsw23e</em>
 
+Technology:
+---------
+HTML5, CSS, Javascript, jQuery, Node, Express, mongoDB
+
 Dashboard
 ---------
 Below is a screenshot of the user's dashboard showing active and completed projects as well as a form for selecting

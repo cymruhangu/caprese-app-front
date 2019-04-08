@@ -18,7 +18,7 @@ password: <em>1qazxsw23e</em>
 
 Technology:
 ---------
-HTML5, CSS, Javascript, jQuery, Node, Express, mongoDB
+HTML5, CSS, Javascript, React, Redux, Node, Express, mongoDB
 
 Dashboard
 ---------
